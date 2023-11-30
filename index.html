@@ -3,10 +3,9 @@
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, h5 { white-space: pre-wrap; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
@@ -23,6 +22,8 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
@@ -50,7 +51,7 @@ sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inh
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
 figure > table { margin: 0px; }
-thead, tr { break-inside: avoid; break-after: auto; }
+tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 32px; }
@@ -72,7 +73,6 @@ div.hr:focus { cursor: none; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
 .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
 .CodeMirror-line, twitterwidget { break-inside: avoid; }
-svg { break-inside: avoid; }
 .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
 .footnotes + .footnotes { margin-top: 0px; }
 .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
@@ -87,14 +87,12 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
-  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
-  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -132,7 +130,6 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 }
 a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
 .footnote-line a:not(.reversefootnote) { color: inherit; }
-.reversefootnote { font-family: ui-monospace, sans-serif; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 code, pre, samp, tt { font-family: var(--monospace); }
@@ -171,7 +168,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -202,7 +199,6 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
-mjx-container { break-inside: avoid; }
 
 
 .CodeMirror { height: auto; }
@@ -291,19 +287,14 @@ span.cm-strikethrough { text-decoration: line-through; }
     --control-text-color: #777;
 }
 
-@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
+html {
     font-size: 16px;
-    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
@@ -314,19 +305,6 @@ body {
   	padding: 30px;
     padding-bottom: 100px;
 }
-
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
-}
-
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
-}
-
 #write > ul:first-child,
 #write > ol:first-child{
     margin-top: 30px;
@@ -381,33 +359,17 @@ h6 code {
     font-size: inherit;
 }
 h1 {
+    padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
 h2 {
+   padding-bottom: .3em;
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
 }
-
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
-
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
-
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
@@ -472,7 +434,7 @@ table {
     word-break: initial;
 }
 table tr {
-    border: 1px solid #dfe2e5;
+    border-top: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
@@ -480,24 +442,24 @@ table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-table th {
+table tr th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-table td {
+table tr td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-table th:first-child,
-table td:first-child {
+table tr th:first-child,
+table tr td:first-child {
     margin-top: 0;
 }
-table th:last-child,
-table td:last-child {
+table tr th:last-child,
+table tr td:last-child {
     margin-bottom: 0;
 }
 
@@ -542,8 +504,11 @@ code {
     html {
         font-size: 13px;
     }
+    table,
     pre {
         page-break-inside: avoid;
+    }
+    pre {
         word-wrap: break-word;
     }
 }
@@ -643,9 +608,9 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
-/*.html-for-mac {
+.html-for-mac .context-menu {
     --item-hover-bg-color: #E6F0FE;
-}*/
+}
 
 #md-notification .btn {
     border: 0;
@@ -653,7 +618,6 @@ header, .context-menu, .megamenu-content, footer{
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
-    opacity: 0.4;
 }
 
 .ty-preferences .window-content {
@@ -665,302 +629,309 @@ header, .context-menu, .megamenu-content, footer{
     background: #999;
 }
 
-.menu-item-container a.menu-style-btn {
-    background-color: #f5f8fa;
-    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
-}
-
-
 
 </style><title>StableDiffusion笔记</title>
 </head>
-<body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><p>&nbsp;</p><h1 id='stable-diffusion-笔记'><span>Stable Diffusion 笔记</span></h1><p>&nbsp;</p><p>&nbsp;</p><h1 id='提示词'><strong><span>提示词</span></strong></h1><p>&nbsp;</p><h2 id='负面提示词'><span>负面提示词</span></h2><h3 id='embeddings嵌入式负面提示词'><span>embeddings嵌入式负面提示词</span></h3><p><span>下面是bad-artist, bad-hands-5, NG_DeepNegative_V1_75T, easyNegative, easyNegativeV2的负面嵌入效果</span></p><p><img src="./assets/prompt_matrix-0005-1643107992-_ bad-artist _ bad-hands-5 _ DeepNegativeV1.x_V175T _ EasyNegativeV2 _ EasyNegative.png" referrerpolicy="no-referrer" alt="prompt_matrix-0005-1643107992-_ bad-artist _ bad-hands-5 _ DeepNegativeV1.x_V175T _ EasyNegativeV2 _ EasyNegative"></p><p><span>综合体验组合使用效果较好，但无法断定通用的方案。</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='参数'><span>参数</span></h1><h2 id='面部修复'><span>面部修复</span></h2><p><img src="./assets/image-20230620115519773.png" alt="image-20230620115519773"  /></p><p><span>二次元修复效果：(这里忘记锁种子了，结论是对二次元的效果不大)</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;transform: translateX(35%);">
+<body class='typora-export os-windows typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#stable-diffusion-笔记">Stable Diffusion 笔记</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#目录">目录</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#作品展示">作品展示</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#宣传图">宣传图</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#游戏资源系列">游戏资源系列</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#武器">武器</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#场景-1">场景</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#图标">图标</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二次元插画">二次元插画</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#场景-2">场景</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#角色">角色</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#封面海报">封面、海报</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#绘本">绘本</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#产品">产品</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#案例演示">案例演示</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#分割线">分割线</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#课件">课件</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#产图的基本操作">产图的基本操作</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#模型-1">模型</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#controlnet">ControlNet</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#提示词"><strong>提示词</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#负面提示词">负面提示词</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#embeddings嵌入式负面提示词">embeddings嵌入式负面提示词</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#参数">参数</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#面部修复">面部修复</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#模型-2">模型</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#lora模型">lora模型</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#艺术家风格">艺术家风格</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#穆夏">穆夏</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#莫奈">莫奈</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#毕加索">毕加索</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#梵高">梵高</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#lora融合画风">lora融合画风</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#线稿">线稿</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#插件">插件</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#脚本">脚本</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#xyz-plotxyz-图表）">X/Y/Z plot（X/Y/Z 图表）</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#segment-anything分离图像元素">Segment Anything(分离图像元素)</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前置准备">前置准备：</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1sam模型">1.sam模型</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2groundingdino模型">2.GroundingDINO模型</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#具体步骤">具体步骤：</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#快速添加提示词easy-prompt-selector">快速添加提示词easy-prompt-selector</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#deforum生成视频">Deforum生成视频</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#默认选项测试">默认选项测试</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#lora训练">lora训练</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#云端部署">云端部署</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#阿里云">阿里云</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#sd部署">SD部署</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#申请">申请</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#准备文件">准备文件</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#执行部署">执行部署</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#google-colab">google colab</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#注册">注册</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#连续使用">连续使用</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#脚本问题">脚本问题</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#空间不足">空间不足</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#其它">其它</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#工具">工具</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#产图辅助">产图辅助</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#生成图参数解析">生成图参数解析</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#danbooru-标签超市">Danbooru 标签超市</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#模型训练辅助">模型训练辅助</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#裁剪图片">裁剪图片</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#资源下载">资源下载</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#国外模型网站">国外模型网站</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#国内模型网站">国内模型网站</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#markdown编写提示">markdown编写提示</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#语法">语法</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#转义字符">转义字符</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1前缀实现转义">1.前缀<code>\</code>实现转义</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2使用html中的转义字符">2.使用html中的转义字符</a></div><ul class="outline-children"></ul></li></ul></li></ul></li></ul></li></div></div><div id='write'  class=''><p>&nbsp;</p><h1 id='stable-diffusion-笔记'><span>Stable Diffusion 笔记</span></h1><h1 id='目录'><span>目录</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#stable-diffusion-笔记">Stable Diffusion 笔记</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n3"><a class="md-toc-inner" href="#目录">目录</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n8"><a class="md-toc-inner" href="#作品展示">作品展示</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n9"><a class="md-toc-inner" href="#宣传图">宣传图</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n23"><a class="md-toc-inner" href="#游戏资源系列">游戏资源系列</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n24"><a class="md-toc-inner" href="#武器">武器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n30"><a class="md-toc-inner" href="#场景-1">场景</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n43"><a class="md-toc-inner" href="#图标">图标</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n49"><a class="md-toc-inner" href="#二次元插画">二次元插画</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n58"><a class="md-toc-inner" href="#场景-2">场景</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n63"><a class="md-toc-inner" href="#角色">角色</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n67"><a class="md-toc-inner" href="#封面海报">封面、海报</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n82"><a class="md-toc-inner" href="#绘本">绘本</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n87"><a class="md-toc-inner" href="#产品">产品</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n97"><a class="md-toc-inner" href="#案例演示">案例演示</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n1107"><a class="md-toc-inner" href="#分割线">分割线</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n106"><a class="md-toc-inner" href="#课件">课件</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1113"><a class="md-toc-inner" href="#产图的基本操作">产图的基本操作</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1116"><a class="md-toc-inner" href="#模型-1">模型</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1120"><a class="md-toc-inner" href="#controlnet">ControlNet</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n171"><a class="md-toc-inner" href="#提示词"><strong>提示词</strong></a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n173"><a class="md-toc-inner" href="#负面提示词">负面提示词</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n174"><a class="md-toc-inner" href="#embeddings嵌入式负面提示词">embeddings嵌入式负面提示词</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n179"><a class="md-toc-inner" href="#参数">参数</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n180"><a class="md-toc-inner" href="#面部修复">面部修复</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n186"><a class="md-toc-inner" href="#模型-2">模型</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n187"><a class="md-toc-inner" href="#lora模型">lora模型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n188"><a class="md-toc-inner" href="#艺术家风格">艺术家风格</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n189"><a class="md-toc-inner" href="#穆夏">穆夏</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n193"><a class="md-toc-inner" href="#莫奈">莫奈</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n197"><a class="md-toc-inner" href="#毕加索">毕加索</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n201"><a class="md-toc-inner" href="#梵高">梵高</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n206"><a class="md-toc-inner" href="#lora融合画风">lora融合画风</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n210"><a class="md-toc-inner" href="#线稿">线稿</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n215"><a class="md-toc-inner" href="#插件">插件</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n217"><a class="md-toc-inner" href="#脚本">脚本</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n218"><a class="md-toc-inner" href="#xyz-plotxyz-图表）">X/Y/Z plot（X/Y/Z 图表）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n272"><a class="md-toc-inner" href="#segment-anything分离图像元素">Segment Anything(分离图像元素)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n279"><a class="md-toc-inner" href="#前置准备">前置准备：</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n280"><a class="md-toc-inner" href="#1sam模型">1.sam模型</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n285"><a class="md-toc-inner" href="#2groundingdino模型">2.GroundingDINO模型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n288"><a class="md-toc-inner" href="#具体步骤">具体步骤：</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n300"><a class="md-toc-inner" href="#快速添加提示词easy-prompt-selector">快速添加提示词easy-prompt-selector</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n307"><a class="md-toc-inner" href="#deforum生成视频">Deforum生成视频</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n308"><a class="md-toc-inner" href="#默认选项测试">默认选项测试</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n320"><a class="md-toc-inner" href="#lora训练">lora训练</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n343"><a class="md-toc-inner" href="#云端部署">云端部署</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n345"><a class="md-toc-inner" href="#阿里云">阿里云</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n346"><a class="md-toc-inner" href="#sd部署">SD部署</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n347"><a class="md-toc-inner" href="#申请">申请</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n349"><a class="md-toc-inner" href="#准备文件">准备文件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n356"><a class="md-toc-inner" href="#执行部署">执行部署</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n365"><a class="md-toc-inner" href="#google-colab">google colab</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n382"><a class="md-toc-inner" href="#注册">注册</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n386"><a class="md-toc-inner" href="#连续使用">连续使用</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n396"><a class="md-toc-inner" href="#脚本问题">脚本问题</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n404"><a class="md-toc-inner" href="#空间不足">空间不足</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n407"><a class="md-toc-inner" href="#其它">其它</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n408"><a class="md-toc-inner" href="#工具">工具</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n409"><a class="md-toc-inner" href="#产图辅助">产图辅助</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n410"><a class="md-toc-inner" href="#生成图参数解析">生成图参数解析</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n412"><a class="md-toc-inner" href="#danbooru-标签超市">Danbooru 标签超市</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n415"><a class="md-toc-inner" href="#模型训练辅助">模型训练辅助</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n416"><a class="md-toc-inner" href="#裁剪图片">裁剪图片</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n419"><a class="md-toc-inner" href="#资源下载">资源下载</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n420"><a class="md-toc-inner" href="#国外模型网站">国外模型网站</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n428"><a class="md-toc-inner" href="#国内模型网站">国内模型网站</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n434"><a class="md-toc-inner" href="#markdown编写提示">markdown编写提示</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n435"><a class="md-toc-inner" href="#语法">语法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n487"><a class="md-toc-inner" href="#转义字符">转义字符</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n488"><a class="md-toc-inner" href="#1前缀实现转义">1.前缀<code>\</code>实现转义</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n492"><a class="md-toc-inner" href="#2使用html中的转义字符">2.使用html中的转义字符</a></span></p></div><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='作品展示'><span>作品展示</span></h1><h2 id='宣传图'><span>宣传图</span></h2><p><span>（生成+修图设计）</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibao1.jpg" alt="" style="zoom:40%;">
+        </div>
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibaonew1.jpg" alt="" style="zoom:40%;">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibao2.jpg" alt="" style="zoom:40%;">
+        </div>
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibaonew2.jpg" alt="" style="zoom:40%;">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibao3.jpg" alt="" style="zoom:40%;">
+        </div>
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibaonew3.jpg" alt="" style="zoom:40%;">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibao4.jpg" alt="" style="zoom:40%;">
+        </div>
+        <div style="text-align: center;">
+            <img src="assets/海报jpg/haibaonew4.jpg" alt="" style="zoom:40%;">
+        </div>
+</div><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='游戏资源系列'><span>游戏资源系列</span></h2><h3 id='武器'><span>武器</span></h3><div style="display: flex; align-items: center;justify-content: space-around;flex-flow:row wrap;margin: 10px 10px 10px 0;">
+        <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (1).png">
+        </div>
+         <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (2).png">
+        </div>
+     <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (3).png">
+        </div>
+     <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (5).png">
+        </div>
+     <div style="text-align: center;width: 19%;">
+            <img src="./assets/weapon (6).png">
+        </div>
+</div><div style="display: flex; align-items: center;justify-content: space-around;flex-flow:row wrap;margin: 10px 10px 0 0;">
+        <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (8).png">
+        </div>
+         <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (9).png">
+        </div>
+     <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (10).png">
+        </div>
+     <div style="text-align: center;width: 19%;margin-right: 1%">
+            <img src="./assets/weapon (12).png">
+        </div>
+     <div style="text-align: center;width: 19%;">
+            <img src="./assets/weapon (13).png">
+        </div>
+</div><p>&nbsp;</p><p>&nbsp;</p><h3 id='场景-1'><span>场景</span></h3><div style="display: flex; align-items: center;justify-content: space-around;margin-bottom: 5px">
+        <div style="text-align: center;width: 30%;">
+            <img src="./assets/tmpy1q4emy8.png">
+        </div>
+        <div style="text-align: center;width: 60%;">
+            <img src="./assets/tmpxxv84n4f.png">
+        </div>
+</div><div style="display: flex; align-items: center;justify-content: space-around;margin-bottom: 5px">
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (1).png">
+        </div>
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (2).png">
+        </div>
+    <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (3).png">
+        </div>	
+</div><div style="display: flex; align-items: center;justify-content: space-around;margin-bottom: 5px">
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (4).png">
+        </div>
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (5).png">
+        </div>
+    <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (6).png">
+        </div>
+</div><div style="display: flex; align-items: center;justify-content: space-around;margin-bottom: 5px">
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (7).png">
+        </div>
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (8).png">
+        </div>
+    <div style="text-align: center;width: 33%;">
+            <img src="./assets/游戏场景 (9).png">
+        </div>
+</div><div style="display: flex; align-items: center;justify-content: space-around;margin-bottom: 5px">
+        <div style="text-align: center;width: 28%;">
+            <img src="./assets/游戏场景b.png">
+        </div>
+        <div style="text-align: center;width: 28%;">
+            <img src="./assets/游戏场景b (1).png">
+        </div>
+    <div style="text-align: center;width: 28%;">
+            <img src="./assets/游戏场景b (2).png">
+        </div>
+</div><p>&nbsp;</p><p><img src="./assets/tmp2nqit9wf.png" referrerpolicy="no-referrer" alt="tmp2nqit9wf"></p><p>&nbsp;</p><p>&nbsp;</p><h3 id='图标'><span>图标</span></h3><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标.png">
+        </div>
+        <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (1).png">
+        </div>
+    	<div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (2).png">
+        </div>
+    <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (3).png">
+        </div>
+    <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (4).png">
+        </div>
+    <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (5).png">
+        </div>
+</div><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (6).png">
+        </div>
+        <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (7).png">
+        </div>
+    	<div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (8).png">
+        </div>
+    <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (9).png">
+        </div>
+    <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (10).png">
+        </div>
+    <div style="text-align: center;width: 16%;">
+            <img src="./assets/技能图标 (11).png">
+        </div>
+</div><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='二次元插画'><span>二次元插画</span></h2><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/old/00072-193579352-1.jpg">
+        </div>
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/old/00076-3699892594-1.jpg">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/old/00080-3095636667-1.jpg">
+        </div>
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/old/00030-2779367052-1.jpg">
+        </div>
+</div><p>&nbsp;</p><p><img src="assets/old/old_jpg (7).jpg" referrerpolicy="no-referrer" alt="old_jpg (7)"></p><p><img src="assets/old/p2p-2-1.jpg" referrerpolicy="no-referrer" alt="p2p-2-1"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='场景-2'><span>场景</span></h2><p><img src="assets/old/old (1).png" referrerpolicy="no-referrer" alt="old (1)"></p><p><img src="assets/old/old (2).png" referrerpolicy="no-referrer" alt="old (2)"></p><p><img src="assets/old/old (3).png" referrerpolicy="no-referrer" alt="old (3)"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='角色'><span>角色</span></h2><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 48%;">
+            <img src="./assets/old/00057-1587922954-1_.jpg">
+        </div>
+        <div style="text-align: center;width: 48%;">
+            <img src="./assets/old/old (22).png">
+        </div>
+</div><p><img src="assets/old/00132-2792891024-3.jpg" referrerpolicy="no-referrer" alt="00132-2792891024-3"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='封面海报'><span>封面、海报</span></h2><p><span>（纯生成）</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/tmppuz9cgia.png">
+        </div>
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/00312-788055516.png">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/00313-2904350383.png">
+        </div>
+        <div style="text-align: center;width: 46%;">
+            <img src="./assets/tmpzy46hj0y.png">
+        </div>
+</div><p>&nbsp;</p><p><span>下面是生成 ➡ 合成 ➡ 调整的产图演示</span></p><p><span>生成基底：</span></p><p><img src="./assets/tmp_t_bokep.png" referrerpolicy="no-referrer" alt="tmp_t_bokep"></p><p><span>拼合元素的图：</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/tmppz_rh041.png">
+        </div>
+        <div style="text-align: center;width: 33%;">
+            <img src="./assets/tmpvetrx5bh.png">
+        </div>
+    	<div style="text-align: center;width: 33%;">
+            <img src="./assets/tmpswm70hns.png">
+        </div>
+</div><p><span>出图：</span></p><p><img src="./assets/tmpix8pb2z3.png" referrerpolicy="no-referrer" alt="tmpix8pb2z3"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='绘本'><span>绘本</span></h2><p><img src="assets/绘本/佳雨/B-情节6.jpg" referrerpolicy="no-referrer" alt="B-情节6"></p><p><img src="assets/绘本/俊杰/00189-2923598707-1.png" referrerpolicy="no-referrer" alt="00189-2923598707-1"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='产品'><span>产品</span></h2><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水.png">
+        </div>
+        <div style="text-align: center;width: 30%;">
+            <img src="./assets//产品图/香水1.png">
+        </div>
+    	<div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水2.png">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水c.jpg">
+        </div>
+        <div style="text-align: center;width: 30%;">
+            <img src="./assets//产品图/香水c (1).png">
+        </div>
+    	<div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水c (2).png">
+        </div>
+</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水b.png">
+        </div>
+    	<div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水b (3).png">
+        </div>
+    	<div style="text-align: center;width: 30%;">
+            <img src="./assets/产品图/香水b (2).png">
+        </div>
+</div><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='案例演示'><span>案例演示</span></h2><p><img src="assets/old/show (4).Jpeg" referrerpolicy="no-referrer" alt="show (4)"></p><p><img src="assets/old/show (5).Jpeg" referrerpolicy="no-referrer" alt="show (5)"></p><p><img src="assets/old/show (6).Jpeg" referrerpolicy="no-referrer" alt="show (6)"></p><p><img src="assets/old/show (7).Jpeg" referrerpolicy="no-referrer" alt="show (7)"></p><p><img src="assets/old/show (8).Jpeg" referrerpolicy="no-referrer" alt="show (8)"></p><p><img src="assets/old/show (9).Jpeg" referrerpolicy="no-referrer" alt="show (9)"></p><p><img src="assets/old/show (10).Jpeg" referrerpolicy="no-referrer" alt="show (10)"></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='分割线'><span>分割线</span></h1><p><span>下面是较为详细且具体的内容。</span></p><p><span>若需要回顾内容，可点击左边目录。</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='课件'><span>课件</span></h1><p><span>（自制课件，技术类教学）</span></p><p><img src="assets/课件/课件 (1).jpeg" referrerpolicy="no-referrer" alt="课件 (1)"></p><p><img src="assets/课件/课件 (2).jpeg" referrerpolicy="no-referrer" alt="课件 (2)"></p><p>&nbsp;</p><h2 id='产图的基本操作'><span>产图的基本操作</span></h2><p><img src="assets/课件/课件 (10).jpeg" referrerpolicy="no-referrer" alt="课件 (10)"></p><p><img src="assets/课件/课件 (11).jpeg" referrerpolicy="no-referrer" alt="课件 (11)"></p><p><img src="assets/课件/课件 (12).jpeg" referrerpolicy="no-referrer" alt="课件 (12)"></p><p><img src="assets/课件/课件 (13).jpeg" referrerpolicy="no-referrer" alt="课件 (13)"></p><p><img src="assets/课件/课件 (14).jpeg" referrerpolicy="no-referrer" alt="课件 (14)"></p><p><img src="assets/课件/课件 (15).jpeg" referrerpolicy="no-referrer" alt="课件 (15)"></p><p><img src="assets/课件/课件 (16).jpeg" referrerpolicy="no-referrer" alt="课件 (16)"></p><p>&nbsp;</p><h2 id='模型-1'><span>模型</span></h2><p><img src="assets/课件/课件 (17).jpeg" referrerpolicy="no-referrer" alt="课件 (17)"></p><p><img src="assets/课件/课件 (18).jpeg" referrerpolicy="no-referrer" alt="课件 (18)"></p><p><img src="assets/课件/课件 (19).jpeg" referrerpolicy="no-referrer" alt="课件 (19)"></p><p><img src="assets/课件/课件 (20).jpeg" referrerpolicy="no-referrer" alt="课件 (20)"></p><p><img src="assets/课件/课件 (21).jpeg" referrerpolicy="no-referrer" alt="课件 (21)"></p><p><img src="assets/课件/课件 (22).jpeg" referrerpolicy="no-referrer" alt="课件 (22)"></p><p><img src="assets/课件/课件 (23).jpeg" referrerpolicy="no-referrer" alt="课件 (23)"></p><p><img src="assets/课件/课件 (24).jpeg" referrerpolicy="no-referrer" alt="课件 (24)"></p><p><img src="assets/课件/课件 (25).jpeg" referrerpolicy="no-referrer" alt="课件 (25)"></p><p><img src="assets/课件/课件 (26).jpeg" referrerpolicy="no-referrer" alt="课件 (26)"></p><p><img src="assets/课件/课件 (27).jpeg" referrerpolicy="no-referrer" alt="课件 (27)"></p><p><img src="assets/课件/课件 (28).jpeg" referrerpolicy="no-referrer" alt="课件 (28)"></p><p><img src="assets/课件/课件 (29).jpeg" referrerpolicy="no-referrer" alt="课件 (29)"></p><p><img src="assets/课件/课件 (30).jpeg" referrerpolicy="no-referrer" alt="课件 (30)"></p><p>&nbsp;</p><h2 id='controlnet'><span>ControlNet</span></h2><p><img src="assets/课件/课件 (31).jpeg" referrerpolicy="no-referrer" alt="课件 (31)"></p><p><img src="assets/课件/课件 (32).jpeg" referrerpolicy="no-referrer" alt="课件 (32)"></p><p><img src="assets/课件/课件 (33).jpeg" referrerpolicy="no-referrer" alt="课件 (33)"></p><p><img src="assets/课件/课件 (34).jpeg" referrerpolicy="no-referrer" alt="课件 (34)"></p><p><img src="assets/课件/课件 (35).jpeg" referrerpolicy="no-referrer" alt="课件 (35)"></p><p><img src="assets/课件/课件 (36).jpeg" referrerpolicy="no-referrer" alt="课件 (36)"></p><p><img src="assets/课件/课件 (37).jpeg" referrerpolicy="no-referrer" alt="课件 (37)"></p><p><img src="assets/课件/课件 (38).jpeg" referrerpolicy="no-referrer" alt="课件 (38)"></p><p><img src="assets/课件/课件 (39).jpeg" referrerpolicy="no-referrer" alt="课件 (39)"></p><p><img src="assets/课件/课件 (40).jpeg" referrerpolicy="no-referrer" alt="课件 (40)"></p><p><img src="assets/课件/课件 (41).jpeg" referrerpolicy="no-referrer" alt="课件 (41)"></p><p><img src="assets/课件/课件 (42).jpeg" referrerpolicy="no-referrer" alt="课件 (42)"></p><p><img src="assets/课件/课件 (43).jpeg" referrerpolicy="no-referrer" alt="课件 (43)"></p><p><img src="assets/课件/课件 (44).jpeg" referrerpolicy="no-referrer" alt="课件 (44)"></p><p><img src="assets/课件/课件 (45).jpeg" referrerpolicy="no-referrer" alt="课件 (45)"></p><p><img src="assets/课件/课件 (46).jpeg" referrerpolicy="no-referrer" alt="课件 (46)"></p><p><img src="assets/课件/课件 (47).jpeg" referrerpolicy="no-referrer" alt="课件 (47)"></p><p><img src="assets/课件/课件 (48).jpeg" referrerpolicy="no-referrer" alt="课件 (48)"></p><p><img src="assets/课件/课件 (49).jpeg" referrerpolicy="no-referrer" alt="课件 (49)"></p><p><img src="assets/课件/课件 (50).jpeg" referrerpolicy="no-referrer" alt="课件 (50)"></p><p><img src="assets/课件/课件 (51).jpeg" referrerpolicy="no-referrer" alt="课件 (51)"></p><p><img src="assets/课件/课件 (52).jpeg" referrerpolicy="no-referrer" alt="课件 (52)"></p><p><img src="assets/课件/课件 (53).jpeg" referrerpolicy="no-referrer" alt="课件 (53)"></p><p><img src="assets/课件/课件 (54).jpeg" referrerpolicy="no-referrer" alt="课件 (54)"></p><p><img src="assets/课件/课件 (55).jpeg" referrerpolicy="no-referrer" alt="课件 (55)"></p><p><img src="assets/课件/课件 (56).jpeg" referrerpolicy="no-referrer" alt="课件 (56)"></p><p><img src="assets/课件/课件 (57).jpeg" referrerpolicy="no-referrer" alt="课件 (57)"></p><p><img src="assets/课件/课件 (58).jpeg" referrerpolicy="no-referrer" alt="课件 (58)"></p><p><img src="assets/课件/课件 (59).jpeg" referrerpolicy="no-referrer" alt="课件 (59)"></p><p><img src="assets/课件/课件 (60).jpeg" referrerpolicy="no-referrer" alt="课件 (60)"></p><p><img src="assets/课件/课件 (61).jpeg" referrerpolicy="no-referrer" alt="课件 (61)"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='提示词'><strong><span>提示词</span></strong></h1><p>&nbsp;</p><h2 id='负面提示词'><span>负面提示词</span></h2><h3 id='embeddings嵌入式负面提示词'><span>embeddings嵌入式负面提示词</span></h3><p><span>下面是bad-artist, bad-hands-5, NG_DeepNegative_V1_75T, easyNegative, easyNegativeV2的负面嵌入效果</span></p><p><img src="./assets/prompt_matrix-0005-1643107992-_ bad-artist _ bad-hands-5 _ DeepNegativeV1.x_V175T _ EasyNegativeV2 _ EasyNegative.png" referrerpolicy="no-referrer" alt="prompt_matrix-0005-1643107992-_ bad-artist _ bad-hands-5 _ DeepNegativeV1.x_V175T _ EasyNegativeV2 _ EasyNegative"></p><p><span>综合体验组合使用效果较好，但无法断定通用的方案。</span></p><p>&nbsp;</p><h1 id='参数'><span>参数</span></h1><h2 id='面部修复'><span>面部修复</span></h2><p><img src="./assets/image-20230620115519773.png" alt="image-20230620115519773"  /></p><p><span>二次元修复效果：(这里忘记锁种子了，结论是对二次元的效果不大)</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;">
             <p>未启用面部修复</p>
-            <img src="./assets/tmpn_icckje.png" alt="tmpn_icckje" style="zoom:60%;" />
+            <img src="./assets/tmpn_icckje.png" alt="tmpn_icckje" style="zoom:60%;">
         </div>
-        <div style="text-align: center;transform: translateX(-35%);">
+        <div style="text-align: center;">
             <p>启用面部修复</p>
-            <img src="./assets/tmpsp0p4rcj.png" alt="tmpsp0p4rcj" style="zoom:60%;" />
+            <img src="./assets/tmpsp0p4rcj.png" alt="tmpsp0p4rcj" style="zoom:60%;">
         </div>
-</div><p>&nbsp;</p><h1 id='模型'><span>模型</span></h1><h2 id='lora模型'><span>lora模型</span></h2><h3 id='艺术家风格'><span>艺术家风格</span></h3><h4 id='穆夏'><span>穆夏</span></h4><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;transform: translateX(25%);">
+</div><p>&nbsp;</p><h1 id='模型-2'><span>模型</span></h1><h2 id='lora模型'><span>lora模型</span></h2><h3 id='艺术家风格'><span>艺术家风格</span></h3><h4 id='穆夏'><span>穆夏</span></h4><div style="display: flex; align-items: center;justify-content: space-around;">
+        <div style="text-align: center;">
             <p>revAnimatedV122模型</p>
-            <img src="./assets/00001-3850068588.png" alt="00001-3850068588" style="zoom:55%;" />
+            <img src="./assets/00001-3850068588.png" alt="00001-3850068588" style="zoom:55%;">
         </div>
-        <div style="text-align: center;transform: translateX(-25%);">
+        <div style="text-align: center;">
             <p>counterfeitV30模型</p>
-            <img src="./assets/tmpttc9cb4c.png" alt="tmpttc9cb4c" style="zoom:55%;" />
+            <img src="./assets/tmpttc9cb4c.png" alt="tmpttc9cb4c" style="zoom:55%;">
         </div>
 </div><p>&nbsp;</p><h4 id='莫奈'><span>莫奈</span></h4><div style="display: flex; align-items: center;justify-content: space-around;">
         <div style="text-align: center;">
             <p>二次元风格为基底</p>
-            <img src="./assets/tmp8hiwife6.png" alt="tmp8hiwife6" style="zoom:55%;" />
+            <img src="./assets/tmp8hiwife6.png" alt="tmp8hiwife6" style="zoom:55%;">
         </div>
         <div style="text-align: center;">
             <p>写实风格为基底</p>
-            <img src="./assets/00045-3538359457.png" alt="00045-3538359457" style="zoom:55%;" />
+            <img src="./assets/00045-3538359457.png" alt="00045-3538359457" style="zoom:55%;">
         </div>
     	<div style="text-align: center;">
             <p>风景方向</p>
-            <img src="./assets/tmpf49l1ljo.png" alt="tmpf49l1ljo" style="zoom:55%;" />
+            <img src="./assets/tmpf49l1ljo.png" alt="tmpf49l1ljo" style="zoom:55%;">
         </div>
 </div><p>&nbsp;</p><h4 id='毕加索'><span>毕加索</span></h4><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;transform: translateX(25%);">
+        <div style="text-align: center;">
             <p>二次元风格为基底</p>
-            <img src="./assets/00031-949319935.png" alt="tmp8hiwife6" style="zoom:60%;" />
+            <img src="./assets/00031-949319935.png" alt="tmp8hiwife6" style="zoom:60%;">
         </div>
-        <div style="text-align: center;transform: translateX(-25%);">
+        <div style="text-align: center;">
             <p>写实风格为基底</p>
-            <img src="./assets/tmp1ppb3vah.png" alt="00045-3538359457" style="zoom:60%;" />
+            <img src="./assets/tmp1ppb3vah.png" alt="00045-3538359457" style="zoom:60%;">
         </div>
-</div><p>&nbsp;</p><h4 id='梵高'><span>梵高</span></h4><p><span>值得一提的是，这张加入lora却未体现梵高的独特风格，估计是只模仿了一定程度，强化了油画相关的提示词。</span></p><p><img src="./assets/tmp69nnady0.png" alt="tmp69nnady0" style="zoom:80%;" /></p><p>&nbsp;</p><p>&nbsp;</p><h4 id='lora融合画风'><span>lora融合画风</span></h4><p><span>左下：雷诺阿，右上：莫奈</span></p><p><img src="./assets/tmp4o1tmqu8.png" referrerpolicy="no-referrer" alt="tmp4o1tmqu8"></p><p>&nbsp;</p><h3 id='线稿'><span>线稿</span></h3><p><span>animeLineartMangaLike，作用是风格平面化、线稿化</span></p><p><img src="./assets/tmpex5h118x.png" referrerpolicy="no-referrer" alt="tmpex5h118x"></p><p>&nbsp;</p><h3 id='游戏资源系列'><span>游戏资源系列</span></h3><h4 id='武器'><span>武器</span></h4><p><span> </span><span>&lt;</span><span>lora:Pecha_Swords_LORA_V1.4:0.8&gt;，其中混合了一些像素lora</span></p><div style="display: flex; align-items: center;justify-content: space-around;flex-flow:row wrap;margin: 10px 10px 0 0;">
-        <div style="text-align: center;">
-            <img src="./assets/weapon (1).png" alt="weapon" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/weapon (2).png" alt="weapon" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/weapon (3).png" alt="weapon" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/weapon (4).png" alt="weapon" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/weapon (5).png" alt="weapon" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/weapon (6).png" alt="weapon" style="zoom:30%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;flex-flow:row wrap;margin: 10px 10px 0 0;">
-    <div style="text-align: center;">
-        <img src="./assets/weapon (8).png" alt="weapon" style="zoom:30%;" />
-    </div>
-	<div style="text-align: center;">
-        <img src="./assets/weapon (9).png" alt="weapon" style="zoom:30%;" />
-    </div>
-	<div style="text-align: center;">
-        <img src="./assets/weapon (10).png" alt="weapon" style="zoom:30%;" />
-    </div>
-	<div style="text-align: center;">
-        <img src="./assets/weapon (11).png" alt="weapon" style="zoom:30%;" />
-    </div>
-	<div style="text-align: center;">
-        <img src="./assets/weapon (12).png" alt="weapon" style="zoom:30%;" />
-    </div>
-	<div style="text-align: center;">
-        <img src="./assets/weapon (13).png" alt="weapon" style="zoom:30%;" />
-    </div>
-</div><p>&nbsp;</p><h4 id='场景'><span>场景</span></h4><p><span>&lt;</span><span>lora:hengban:1:MIDD&gt;</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;transform: translateX(15%);">
-            <img src="./assets/tmpy1q4emy8.png" alt="tmp8hiwife6" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;transform: translateX(-15%);">
-            <img src="./assets/tmpxxv84n4f.png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-</div><p>&nbsp;</p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景 (1).png" alt="tmp8hiwife6" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景 (2).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    <div style="text-align: center;">
-            <img src="./assets/游戏场景 (3).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景 (4).png" alt="tmp8hiwife6" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景 (5).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    <div style="text-align: center;">
-            <img src="./assets/游戏场景 (6).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景 (7).png" alt="tmp8hiwife6" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景 (8).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    <div style="text-align: center;">
-            <img src="./assets/游戏场景 (9).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景b.png" alt="" style="zoom:20%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/游戏场景b (1).png" alt="" style="zoom:40%;" />
-        </div>
-    <div style="text-align: center;">
-            <img src="./assets/游戏场景b (2).png" alt="" style="zoom:40%;" />
-        </div>
-</div><p><img src="./assets/tmp2nqit9wf.png" referrerpolicy="no-referrer" alt="tmp2nqit9wf"></p><p>&nbsp;</p><h4 id='图标'><span>图标</span></h4><p><span>&lt;</span><span>lora:游戏图标研究所_技能特效:0.9&gt;,图标类使用游戏图标研究所的标签比较优秀，配合他们制作的大模型或者使用rev模型。（他们就是基于rev训练的模型）</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/技能图标.png" alt="tmp8hiwife6" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/技能图标 (1).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (2).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (3).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (4).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (5).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;">
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (6).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/技能图标 (7).png" alt="tmp8hiwife6" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/技能图标 (8).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (9).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (10).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/技能图标 (11).png" alt="00045-3538359457" style="zoom:30%;" />
-        </div>
-</div><p>&nbsp;</p><p>&nbsp;</p><h3 id='封面海报'><span>封面、海报</span></h3><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/tmppuz9cgia.png" alt="tmppuz9cgia" style="zoom:25%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/00312-788055516.png" alt="00312-788055516" style="zoom:35%;" />
-        </div>
-    <div style="text-align: center;">
-            <img src="./assets/00313-2904350383.png" alt="00313-2904350383" style="zoom:35%;" />
-        </div>
-</div><p><em><span>注：下面的图饱和度过高，可能是不合适的VAE所致，若要使用建议手动调低饱和度</span></em></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/tmpaoo6i997.png" alt="tmpaoo6i997" style="zoom:30%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/tmpeqw0rpb1.png" alt="tmpeqw0rpb1" style="zoom:30%;" />
-        </div>
-    <div style="text-align: center;">
-            <img src="./assets/tmpzy46hj0y.png" alt="tmpzy46hj0y" style="zoom:30%;" />
-        </div>
-</div><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='插件'><span>插件</span></h1><p>&nbsp;</p><h2 id='脚本'><span>脚本</span></h2><h3 id='xyz-plotxyz-图表）'><span>X/Y/Z plot（X/Y/Z 图表）</span></h3><p><img src="./assets/image-20230621115458643.png" referrerpolicy="no-referrer" alt="image-20230621115458643"></p><p><span>这里的</span><code>X type</code><span> / </span><code>Y type</code><span> / </span><code>Z type</code><span> 是用来设置需要对比的属性的</span></p><p><span>选好左边的type之后，value部分的设置，根据不同的value类型有不同的写法：</span></p><ul><li><p><span>字符串类型/列表选项类型：</span></p></li><li><ul><li><p><span>例如</span><code>Sampler</code><span> ，你可以设置成</span><code>Euler a, Euler, LMS, Heun, DPM2, DPM2 a, DPM++ 2S a, DPM++ 2M, DPM++ SDE</code><span> ，这样配置的效果是按照这9个不同的</span><code>Sampler</code><span>进行生成。如果升级到最新版的WebUI的话，也可以点击value输入框右侧的 图标，快速输入所有的选项，再进行编辑。</span></p></li></ul></li><li><p><span>数值型：这个写法比较灵活，大概有三种：</span></p></li><li><ul><li><p><span>区间写法1 单调递增1：</span><code>1-5</code><span> = 1, 2, 3, 4, 5</span></p></li><li><p><span>区间写法2 修改默认递增值：</span></p></li><li><ul><li><p><span>1-5 (+2) = 1, 3, 5</span></p></li><li><p><span>10-5 (-3) = 10, 7</span></p></li><li><p><span>1-3 (+0.5) = 1, 1.5, 2, 2.5, 3</span></p></li></ul></li><li><p><span>区间写法3 生成范围内n个数值</span></p></li><li><ul><li><p><code>1-10 [5]</code><span> = 1, 3, 5, 7, 10</span></p></li><li><p><code>0.0-1.0 [6]</code><span> = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0</span></p></li></ul></li></ul></li><li><p><span>特殊写法：</span></p></li><li><ul><li><p><span>Prompt S/R:</span></p></li><li><ul><li><p><span>第一个逗号前是用来匹配的目标字符，后面每个逗号隔开的是需要进行替换的字符，从而组成不同的prompts进行生成</span></p></li><li><ul><li><p><code>darkness, light, green, heat</code><span> = 4项组合 ： </span><code>darkness</code><span>, </span><code>light</code><span>, </span><code>green</code><span>, </span><code>heat</code></p></li><li><p><code>darkness,&quot;light, green&quot;,heat</code><span> = 3项组合 ： </span><code>darkness</code><span>, </span><code>light, green</code><span>, </span><code>heat</code></p></li></ul></li></ul></li></ul></li></ul><p>&nbsp;</p><p><span>上方的例子就是找到</span><span>&lt;</span><span>lora:animeLineartMangaLike_v30MangaLike:0&gt;词条，并将其转换成</span><span>&lt;</span><span>lora:animeLineartMangaLike_v30MangaLike:1&gt;、</span><span>&lt;</span><span>lora:animeLineartMangaLike_v30MangaLike:2&gt;，然后输出3种词条的结果，</span><a href='#线稿'><span>点这里跳转到 lora-线稿模型 看效果</span></a><span>，</span></p><p>&nbsp;</p><h2 id='segment-anything分离图像元素'><span>Segment Anything(分离图像元素)</span></h2><p><span>控制图片某个指定区域定向绘制，如下面例子为指定重绘角色右眼的颜色。</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
+</div><p>&nbsp;</p><h4 id='梵高'><span>梵高</span></h4><p><span>值得一提的是，这张加入lora却未体现梵高的独特风格，估计是只模仿了一定程度，强化了油画相关的提示词。</span></p><p><img src="./assets/tmp69nnady0.png" alt="tmp69nnady0" style="zoom:80%;" /></p><p>&nbsp;</p><p>&nbsp;</p><h4 id='lora融合画风'><span>lora融合画风</span></h4><p><span>左下：雷诺阿，右上：莫奈</span></p><p><img src="./assets/tmp4o1tmqu8.png" referrerpolicy="no-referrer" alt="tmp4o1tmqu8"></p><p>&nbsp;</p><h3 id='线稿'><span>线稿</span></h3><p><span>animeLineartMangaLike，作用是风格平面化、线稿化</span></p><p><img src="./assets/tmpex5h118x.png" referrerpolicy="no-referrer" alt="tmpex5h118x"></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='插件'><span>插件</span></h1><p>&nbsp;</p><h2 id='脚本'><span>脚本</span></h2><h3 id='xyz-plotxyz-图表）'><span>X/Y/Z plot（X/Y/Z 图表）</span></h3><p><img src="./assets/image-20230621115458643.png" referrerpolicy="no-referrer" alt="image-20230621115458643"></p><p><span>这里的</span><code>X type</code><span> / </span><code>Y type</code><span> / </span><code>Z type</code><span> 是用来设置需要对比的属性的</span></p><p><span>选好左边的type之后，value部分的设置，根据不同的value类型有不同的写法：</span></p><ul><li><p><span>字符串类型/列表选项类型：</span></p></li><li><ul><li><span>例如</span><code>Sampler</code><span> ，你可以设置成</span><code>Euler a, Euler, LMS, Heun, DPM2, DPM2 a, DPM++ 2S a, DPM++ 2M, DPM++ SDE</code><span> ，这样配置的效果是按照这9个不同的</span><code>Sampler</code><span>进行生成。如果升级到最新版的WebUI的话，也可以点击value输入框右侧的 图标，快速输入所有的选项，再进行编辑。</span></li></ul></li><li><p><span>数值型：这个写法比较灵活，大概有三种：</span></p></li><li><ul><li><p><span>区间写法1 单调递增1：</span><code>1-5</code><span> = 1, 2, 3, 4, 5</span></p></li><li><p><span>区间写法2 修改默认递增值：</span></p></li><li><ul><li><span>1-5 (+2) = 1, 3, 5</span></li><li><span>10-5 (-3) = 10, 7</span></li><li><span>1-3 (+0.5) = 1, 1.5, 2, 2.5, 3</span></li></ul></li><li><p><span>区间写法3 生成范围内n个数值</span></p></li><li><ul><li><code>1-10 [5]</code><span> = 1, 3, 5, 7, 10</span></li><li><code>0.0-1.0 [6]</code><span> = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0</span></li></ul></li></ul></li><li><p><span>特殊写法：</span></p></li><li><ul><li><p><span>Prompt S/R:</span></p></li><li><ul><li><p><span>第一个逗号前是用来匹配的目标字符，后面每个逗号隔开的是需要进行替换的字符，从而组成不同的prompts进行生成</span></p></li><li><ul><li><code>darkness, light, green, heat</code><span> = 4项组合 ： </span><code>darkness</code><span>, </span><code>light</code><span>, </span><code>green</code><span>, </span><code>heat</code></li><li><code>darkness,&quot;light, green&quot;,heat</code><span> = 3项组合 ： </span><code>darkness</code><span>, </span><code>light, green</code><span>, </span><code>heat</code></li></ul></li></ul></li></ul></li></ul><p>&nbsp;</p><p><span>上方的例子就是找到</span><span>&lt;</span><span>lora:animeLineartMangaLike_v30MangaLike:0&gt;词条，并将其转换成</span><span>&lt;</span><span>lora:animeLineartMangaLike_v30MangaLike:1&gt;、</span><span>&lt;</span><span>lora:animeLineartMangaLike_v30MangaLike:2&gt;，然后输出3种词条的结果，</span><a href='#线稿'><span>点这里跳转到 lora-线稿模型 看效果</span></a><span>，</span></p><p>&nbsp;</p><h2 id='segment-anything分离图像元素'><span>Segment Anything(分离图像元素)</span></h2><p><span>控制图片某个指定区域定向绘制，如下面例子为指定重绘角色右眼的颜色。</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
         <div style="text-align: center;transform: translateX(30%);">
             <p>原图</p>
-            <img src="./assets/tmp8hiwife6.png" alt="tmp8hiwife6" style="zoom:60%;" />
+            <img src="./assets/tmp8hiwife6.png" alt="tmp8hiwife6" style="zoom:60%;">
         </div>
         <div style="text-align: center;transform: translateX(-30%);">
             <p>指定重绘</p>
-            <img src="./assets/tmpvgm0x1ne.png" alt="00045-3538359457" style="zoom:60%;" />
+            <img src="./assets/tmpvgm0x1ne.png" alt="00045-3538359457" style="zoom:60%;">
         </div>
-</div><p>&nbsp;</p><p><img src="./assets/image-20230625153118681.png" referrerpolicy="no-referrer" alt="image-20230625153118681"></p><p><span>github地址：</span><a href='https://github.com/continue-revolution/sd-webui-segment-anything' target='_blank' class='url'>https://github.com/continue-revolution/sd-webui-segment-anything</a></p><p><span>这里使用GroundingDINO作为例子</span></p><h3 id='前置准备'><span>前置准备：</span></h3><h4 id='1sam模型'><span>1.sam模型</span></h4><p><span>这个必须要，在github的Installation里可以找到：</span></p><p><img src="./assets/image-20230625153543053.png" referrerpolicy="no-referrer" alt="image-20230625153543053"></p><p><span>3个模型，越大显存要求越高。（例子里使用colab，云盘空间有限，因此使用模型为最小的sam_hq_vit_b）</span></p><p>&nbsp;</p><h4 id='2groundingdino模型'><span>2.GroundingDINO模型</span></h4><p><span>这是使用提示词检测功能时需要用到的，使用时会自动下载。</span></p><p>&nbsp;</p><h3 id='具体步骤'><span>具体步骤：</span></h3><p><span>1.上传图片（图生图模式）</span></p><p><span>2.勾选启用GroundingDINO</span></p><p><span>3.输入提示词</span></p><p><span>4.勾选预览</span></p><p><span>5.点击预览</span></p><p><span>6.勾选你需要的框</span></p><p><span>7.预览分离结果</span></p><p><span>8.发送到重绘蒙版</span></p><p><span>9.上传图片并调整长宽一致（放入图片非必须）</span></p><p><span>10.生成</span></p><p>&nbsp;</p><h2 id='快速添加提示词easy-prompt-selector'><span>快速添加提示词easy-prompt-selector</span></h2><p><span>*管理拓展的目录是：sd根目录\extensions</span></p><p><span>原版GitHub地址：</span><a href='https://github.com/blue-pen5805/sdweb-easy-prompt-selector' target='_blank' class='url'>https://github.com/blue-pen5805/sdweb-easy-prompt-selector</a></p><p><span>汉化GitHub地址：</span><a href='https://github.com/mglray/easy-prompt-selector-zh-cn' target='_blank' class='url'>https://github.com/mglray/easy-prompt-selector-zh-cn</a><span> （2023/7/17，目前感受不好使，建议使用原版加汉化包）</span></p><p><span>这是汉化压缩包： </span><a href='assets\sdweb-easy-prompt-selector.rar'><span>sdweb-easy-prompt-selector.rar</span></a><span> </span></p><p><span>这是已整理可直接解压放入的压缩包： </span><a href='assets\sdweb-easy-prompt-selector（已整理，可直接解压上传）.zip'><span>sdweb-easy-prompt-selector（已整理，可直接解压上传）.zip</span></a><span> </span></p><p>&nbsp;</p><h2 id='deforum生成视频'><span>Deforum生成视频</span></h2><h3 id='默认选项测试'><span>默认选项测试</span></h3><p><span>关键帧标签里，Border mode选择 wrap</span></p><p><span>输入标签，勾选视频完成时自动删除图片，取消勾选保留原图（作用是节约空间）</span></p><p><span>其他默认选项</span></p><video src="./assets/20230617093902.mp4"></video><p><span>提示词变化：</span></p><p><span>{</span>
+</div><p>&nbsp;</p><p><img src="./assets/image-20230625153118681.png" referrerpolicy="no-referrer" alt="image-20230625153118681"></p><p><span>github地址：</span><a href='https://github.com/continue-revolution/sd-webui-segment-anything' target='_blank' class='url'>https://github.com/continue-revolution/sd-webui-segment-anything</a></p><p><span>这里使用GroundingDINO作为例子</span></p><h3 id='前置准备'><span>前置准备：</span></h3><h4 id='1sam模型'><span>1.sam模型</span></h4><p><span>这个必须要，在github的Installation里可以找到：</span></p><p><img src="./assets/image-20230625153543053.png" referrerpolicy="no-referrer" alt="image-20230625153543053"></p><p><span>3个模型，越大显存要求越高。（例子里使用colab，云盘空间有限，因此使用模型为最小的sam_hq_vit_b）</span></p><p>&nbsp;</p><h4 id='2groundingdino模型'><span>2.GroundingDINO模型</span></h4><p><span>这是使用提示词检测功能时需要用到的，使用时会自动下载。</span></p><p>&nbsp;</p><h3 id='具体步骤'><span>具体步骤：</span></h3><p><span>1.上传图片（图生图模式）</span></p><p><span>2.勾选启用GroundingDINO</span></p><p><span>3.输入提示词</span></p><p><span>4.勾选预览</span></p><p><span>5.点击预览</span></p><p><span>6.勾选你需要的框</span></p><p><span>7.预览分离结果</span></p><p><span>8.发送到重绘蒙版</span></p><p><span>9.上传图片并调整长宽一致（放入图片非必须）</span></p><p><span>10.生成</span></p><p>&nbsp;</p><h2 id='快速添加提示词easy-prompt-selector'><span>快速添加提示词easy-prompt-selector</span></h2><p><span>*管理拓展的目录是：sd根目录\extensions</span></p><p><span>原版GitHub地址：</span><a href='https://github.com/blue-pen5805/sdweb-easy-prompt-selector' target='_blank' class='url'>https://github.com/blue-pen5805/sdweb-easy-prompt-selector</a></p><p><span>汉化GitHub地址：</span><a href='https://github.com/mglray/easy-prompt-selector-zh-cn' target='_blank' class='url'>https://github.com/mglray/easy-prompt-selector-zh-cn</a></p><p><span>这是汉化压缩包： </span><a href='assets\sdweb-easy-prompt-selector.rar'><span>sdweb-easy-prompt-selector.rar</span></a><span> </span></p><p><span>这是已整理可直接解压放入的压缩包： </span><a href='assets\sdweb-easy-prompt-selector（已整理，可直接解压上传）.zip'><span>sdweb-easy-prompt-selector（已整理，可直接解压上传）.zip</span></a><span> </span></p><p>&nbsp;</p><h2 id='deforum生成视频'><span>Deforum生成视频</span></h2><h3 id='默认选项测试'><span>默认选项测试</span></h3><p><span>关键帧标签里，Border mode选择 wrap</span></p><p><span>输入标签，勾选视频完成时自动删除图片，取消勾选保留原图（作用是节约空间）</span></p><p><span>其他默认选项</span></p><video src="./assets/20230617093902.mp4"></video><p><span>提示词变化：</span></p><p><span>{</span>
 <span>    &quot;0&quot;: &quot;tiny cute bunny, vibrant diffraction, highly detailed, intricate, ultra hd, sharp photo, crepuscular rays, in focus, by tomasz alen kopera&quot;,</span>
 <span>    &quot;30&quot;: &quot;anthropomorphic clean cat, surrounded by fractals, epic angle and pose, symmetrical, 3d, depth of field, ruan jia and fenghua zhong&quot;,</span>
 <span>    &quot;60&quot;: &quot;a beautiful coconut --neg photo, realistic&quot;,</span>
 <span>    &quot;90&quot;: &quot;a beautiful durian, trending on Artstation&quot;</span>
 <span>}</span></p><p><span>0帧：可爱的小兔子，充满活力的衍射，非常详细，复杂，超高清，清晰的照片，黄昏光线，聚焦，by tomasz alen kopera</span></p><p><span>30帧：拟人化干净的猫，被分形包围，史诗般的角度和姿势，对称，3d，景深，阮佳和钟风华</span></p><p><span>60帧：一个漂亮的椰子——底片照片，逼真</span></p><p><span>90帧：一颗漂亮的榴莲，Artstation上的热门</span></p><p>&nbsp;</p><h1 id='lora训练'><span>lora训练</span></h1><p><span>用基本参数的训练效果</span></p><p><span>训练图片：</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
         <div style="text-align: center;">
-            <img src="./assets/cici-1-1687240468769-28.jpg" alt="cici-1" style="zoom:30%;" />
+            <img src="./assets/cici-1-1687240468769-28.jpg" alt="cici-1" style="zoom:30%;">
         </div>
         <div style="text-align: center;">
-            <img src="./assets/cici-2-1.jpg" alt="cici-2-1" style="zoom:30%;" />
+            <img src="./assets/cici-2-1.jpg" alt="cici-2-1" style="zoom:30%;">
         </div>
         <div style="text-align: center;">
-            <img src="./assets/cici-3.jpg" alt="cici-3" style="zoom:30%;" />
+            <img src="./assets/cici-3.jpg" alt="cici-3" style="zoom:30%;">
         </div>
     	<div style="text-align: center;">
-            <img src="./assets/cici-4.jpg" alt="cici-4" style="zoom:30%;" />
+            <img src="./assets/cici-4.jpg" alt="cici-4" style="zoom:30%;">
         </div>
         <div style="text-align: center;">
-            <img src="./assets/cici-5.jpg" alt="cici-5" style="zoom:30%;" />
+            <img src="./assets/cici-5.jpg" alt="cici-5" style="zoom:30%;">
         </div>
     	<div style="text-align: center;">
-            <img src="./assets/cici-6.jpg" alt="cici-6" style="zoom:30%;" />
+            <img src="./assets/cici-6.jpg" alt="cici-6" style="zoom:30%;">
         </div>
-</div><p><span>训练效果：</span></p><p><img src="./assets/00321-77530829.png" referrerpolicy="no-referrer" alt="00321-77530829"></p><p><span>提示词:</span></p><p><span>masterpiece,best quality,1girl,solo,shirt,white_shirt,teeth,closed_eyes,realistic,black_hair,short_sleeves,t-shirt,open_mouth,upper_body,</span>&lt;<span>lora:kid_cici:1</span>&gt;</p><p><span>负面提示词:</span></p><p><span>(worst quality, bad quality:1.4),lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,</span></p><p><span>其他参数：</span></p><p><span>Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 77530829, Size: 512x512, Model hash: cbfba64e66, Model: CounterfeitV30_v30, Clip skip: 2, ENSD: 31337, Lora hashes: &quot;kid_cici: 221bd638bf15&quot;, Version: v1.3.2</span></p><p>&nbsp;</p><p><img src="./assets/00328-2550667848.png" referrerpolicy="no-referrer" alt="00328-2550667848"></p><p><span>提示词:</span></p><p><span>masterpiece,best quality,(full body:1.2),1girl,solo,shirt,white shirt,black hair,short sleeves,t-shirt,smile,long hair,</span>&lt;<span>lora:kid_cici:1&gt;,</span>&lt;<span>lora:COOLKIDS_MERGE_V2.5:0.8&gt;,</span></p><p><span>负面提示词:</span></p><p><span>(worst quality, bad quality:1.4),lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,</span></p><p><span>其他参数：</span></p><p><span>Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 2550667848, Size: 512x512, Model hash: 4199bcdd14, Model: revAnimated_v122, Clip skip: 2, ENSD: 31337, Lora hashes: &quot;kid_cici: 221bd638bf15, COOLKIDS_MERGE_V2.5: 7f2175533ea5&quot;, Version: v1.3.2</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='综合应用'><span>综合应用</span></h1><p><span>1.西幻、魔法、灾难、宏大</span></p><p><span>主挑选图：</span></p><p><img src="./assets/tmp_t_bokep.png" referrerpolicy="no-referrer" alt="tmp_t_bokep"></p><p><span>拼合元素的图：</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/tmppz_rh041.png" alt="tmpvetrx5bh" style="zoom: 33%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/tmpvetrx5bh.png" alt="tmpvetrx5bh" style="zoom: 33%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/tmpswm70hns.png" alt="tmpswm70hns" style="zoom:33%;" />
-        </div>
-</div><p><span>扩图、构图、拼接、重绘、调整：</span></p><p><img src="./assets/tmpix8pb2z3.png" referrerpolicy="no-referrer" alt="tmpix8pb2z3"></p><p>&nbsp;</p><p><span>下面的例子展示如何处理AI无法理解的内容，如：将原图的狮子头换成液体化成的怪兽。</span></p><p><span>原图：</span></p><p><img src="./assets/tmpkqu7khmr.png" alt="tmpkqu7khmr" style="zoom:50%;" /></p><p><span>处理图：</span></p><p><img src="./assets/tmp1z8pn3w02.png" alt="tmp1z8pn3w02" style="zoom: 50%;" /></p><p>&nbsp;</p><p><span>下面例子展示真人美化，这是原图：</span></p><p><img src="./assets/28b98278c215d66b8eded8e6f60c148 拷贝.jpg" alt="28b98278c215d66b8eded8e6f60c148 拷贝" style="zoom:25%;" /></p><p><span>重绘后：</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;transform: translateX(15%);">
-            <img src="./assets/5.jpg" alt="5" style="zoom:50%;" />
-        </div>
-        <div style="text-align: center;transform: translateX(-15%);">
-            <img src="./assets/5.jpg" alt="5" style="zoom:50%;" />
-        </div>
-</div><p>&nbsp;</p><p><span>绘本</span></p><p>&nbsp;</p><p><span>端午</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/端午/tmp00ls4r8j.png" style="zoom:25%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets/端午/tmp1fg1ulgn.png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/端午/tmpt6eqf6oa.png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/端午/tmpypvux79f2.png" style="zoom:25%;" />
-        </div>
-</div><p>&nbsp;</p><p><span>产品</span></p><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/产品图/香水.png" style="zoom:25%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets//产品图/香水1.png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/产品图/香水2.png" style="zoom:25%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/产品图/香水c.jpg" style="zoom:25%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets//产品图/香水c (1).png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/产品图/香水c (2).png" style="zoom:25%;" />
-        </div>
-</div><div style="display: flex; align-items: center;justify-content: space-around;">
-        <div style="text-align: center;">
-            <img src="./assets/产品图/香水b.png" style="zoom:25%;" />
-        </div>
-        <div style="text-align: center;">
-            <img src="./assets//产品图/香水b (1).png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/产品图/香水b (3).png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/产品图/香水b (4).png" style="zoom:25%;" />
-        </div>
-    	<div style="text-align: center;">
-            <img src="./assets/产品图/香水b (2).png" style="zoom:25%;" />
-        </div>
-</div><p>&nbsp;</p><p>&nbsp;</p><h1 id='云端部署'><span>云端部署</span></h1><p><em><span>若链接的文件不在指定路径则会失效，需要重新寻找资源</span></em></p><h2 id='阿里云'><span>阿里云</span></h2><h3 id='sd部署'><span>SD部署</span></h3><h4 id='申请'><span>申请</span></h4><p><span>新用户白嫖DSW和NAS</span></p><h4 id='准备文件'><span>准备文件</span></h4><p><span>一、秋叶的部署脚本 </span><a href='脚本\sd-webui-aki-aliyun-v5.ipynb'><span>sd-webui-aki-aliyun-v5.ipynb</span></a><span> ，目前V5版本    当前日期：2023\6\15</span></p><p><span>B站up主</span><strong><span>秋葉aaaki</span></strong><span>空间：</span><a href='https://space.bilibili.com/12566101/' target='_blank' class='url'>https://space.bilibili.com/12566101/</a></p><p><span>下载地址：</span><a href='https://pan.quark.cn/s/12af730acb20' target='_blank' class='url'>https://pan.quark.cn/s/12af730acb20</a></p><p>&nbsp;</p><p><span>二、包括我自己和多人修改后的安装脚本 </span><a href='assets\安装.ipynb'><span>安装.ipynb</span></a><span>  </span></p><p>&nbsp;</p><h4 id='执行部署'><span>执行部署</span></h4><p><span>将上述文件拖入工作空间并打开。</span></p><p><span>一、安装SD</span></p><p><span>执行秋叶脚本的“安装 第一次需要执行 ”代码块</span></p><p><span>二、配置</span></p><p><span>执行安装脚本的“批量安装 ”、“安装常用插件 ”、“controlnet模型 ”、最上方的个人安装插件、ckpt、lora、VAE等</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='google-colab'><span>google colab</span></h2><p><span>优点：无需安装，不吃配置</span></p><p><span>缺点：需要魔法，操作繁琐，有配额限制</span></p><p><span>相比其他常见云端（如阿里云）：白嫖不付费，装插件、模型方便，配置一般——t4GPU</span></p><p><span>如何更大程度利用：n个Google账号，互相利用网盘空间、接力使用；以及部署部分的文件到云端，更快启动。</span></p><p>&nbsp;</p><p><span>要解决的难题：</span></p><ol start='' ><li><p><span>google注册（亲身体会同一设备过多注册会导致封号，换节点等方法无效）</span></p></li><li><p><span>连续使用</span></p></li><li><p><span>脚本问题</span></p></li><li><p><span>空间不足</span></p></li></ol><p>&nbsp;</p><h3 id='注册'><span>注册</span></h3><p><span>手机接码平台</span><a href='https://5sim.net/zh' target='_blank' class='url'>https://5sim.net/zh</a><span>，使用体验是不稳定，很多都不能用。相对的openai注册体验还可以。最低要充值1美金。</span></p><p><span>另一个接码平台</span><a href='https://sms-activate.org/' target='_blank' class='url'>https://sms-activate.org/</a><span>，最低要充值2美金。</span></p><p>&nbsp;</p><h3 id='连续使用'><span>连续使用</span></h3><p><span>脚本： </span><a href='assets\fast_sdwebui_on_drive_V2.ipynb'><span>fast_sdwebui_on_drive_V2.ipynb</span></a><span> ，该脚本在</span><strong><span>賢明很wise</span></strong><span>脚本的基础上更改。</span></p><p><span>原脚本的github地址：</span><a href='https://github.com/zc0125/colab-stable-diffusion-webui' target='_blank' class='url'>https://github.com/zc0125/colab-stable-diffusion-webui</a></p><p><span>										</span><a href='https://github.com/Van-wise/sd-colab' target='_blank' class='url'>https://github.com/Van-wise/sd-colab</a></p><p><span>简单来讲，就是将sd部署进云盘里，然后链接colab运行。需要注意的是，colab是禁止跑sd的，实际上这个禁止本质上是不允许代码中出现sd-webui等单词，可以通过别的方法绕过。</span></p><p><span>这样的好处在于：</span></p><p><span>1.更快启动sd，减少启动可能出现的错误。（如果每次都全部重新安装，可能会导致配额不足）</span></p><p><span>2.更舒适的自定义，不会弄丢自己的配置，如提示词预设、各模型、插件等。</span></p><p><span>3.可以安逸存图，跑出来的图片是存入云盘的，随时可以翻出跑过的图。</span></p><p>&nbsp;</p><h3 id='脚本问题'><span>脚本问题</span></h3><p><span>gradio版本更新导致环境不匹配，因此不要使用最新的gradio。</span></p><p><span>解决方法：</span></p><p><span>1.注释gradio（已使用该方法，可以稳定运行）</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">!pip install -qq pycloudflared tomesd #gradio</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>2.指定版本</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">!pip install gradio==3.34.0 --no-deps -qq</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><h3 id='空间不足'><span>空间不足</span></h3><p><span>谷歌云盘免费用户只有15g空间，肯定不够用的。可以从最占空间的模型下手，如果每次重新下载模型到colab，不仅又慢又麻烦还可能出各种bug。最好的方法是通过共享文件拓展空间。</span></p><p>&nbsp;</p><h1 id='其它'><span>其它</span></h1><h2 id='工具'><span>工具</span></h2><h3 id='产图辅助'><span>产图辅助</span></h3><h4 id='生成图参数解析'><span>生成图参数解析</span></h4><p><a href='https://spell.novelai.dev/' target='_blank' class='url'>https://spell.novelai.dev/</a></p><h4 id='danbooru-标签超市'><span>Danbooru 标签超市</span></h4><p><a href='https://tags.novelai.dev/' target='_blank' class='url'>https://tags.novelai.dev/</a></p><p>&nbsp;</p><h3 id='模型训练辅助'><span>模型训练辅助</span></h3><h4 id='裁剪图片'><span>裁剪图片</span></h4><p><a href='https://www.birme.net/' target='_blank' class='url'>https://www.birme.net/</a></p><p>&nbsp;</p><h3 id='资源下载'><span>资源下载</span></h3><h4 id='国外模型网站'><span>国外模型网站</span></h4><p><span>c站（推荐，用户广泛、模型较全）</span></p><p><a href='https://civitai.com/' target='_blank' class='url'>https://civitai.com/</a></p><p><span>抱脸，已被墙</span></p><p><a href='https://huggingface.co/' target='_blank' class='url'>https://huggingface.co/</a></p><p><span>huggingface个人空间（里面收藏了一些个人挑选的模型）</span></p><p><a href='https://huggingface.co/fateNell/GameIcon' target='_blank' class='url'>https://huggingface.co/fateNell/GameIcon</a></p><p>&nbsp;</p><h4 id='国内模型网站'><span>国内模型网站</span></h4><p><span>哩布哩布</span></p><p><a href='https://www.liblibai.com/' target='_blank' class='url'>https://www.liblibai.com/</a></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='引用文章'><span>引用文章</span></h2><h3 id='镜头画面景别以及角度'><span>镜头画面景别以及角度</span></h3><p><span>Stable Diffusion 如何用【提示词】控制镜头画面景别以及角度</span></p><p><span>来源：</span><a href='https://blog.256pages.com/stable-diffusion-prompt-distance/' target='_blank' class='url'>https://blog.256pages.com/stable-diffusion-prompt-distance/</a></p><h4 id='摘要'><span>摘要</span></h4><p><strong><span>在 Stable Diffusion 中，生成的图片中角色的大小、远近或角度看起来好像很随机。实际上可以通过使用提示词来进行控制画面中的角度以及大小。今天，我们将为大家分享有关画面镜头控制的提示词。</span></strong></p><p><span>控制镜头画面，包括景别和角度，景别是只被摄物体的大小，角度包括水平角度与垂直角度</span></p><p><img src="./assets/types-of-shots-in-film52.jpg" referrerpolicy="no-referrer" alt="https://blog.256pages.com/content/images/2023/05/types-of-shots-in-film52.jpg"></p><h4 id='控制景别的提示词'><strong><span>控制“景别”的提示词</span></strong></h4><p><span>景别是指</span><strong><span>由于在焦距一定时，摄影机与被摄体的距离不同，而造成被摄体在摄影机录像器中所呈现出的范围大小的区别</span></strong><span>。 </span></p><ul><li><p><code>extreme close-up</code><span> 特写镜头</span></p></li><li><p><code>close-up</code><span> 近景</span></p></li><li><p><code>medium close-up</code><span> 中近景</span></p></li><li><p><code>medium shot</code><span> 中景</span></p></li><li><p><code>long shot</code><span> 全景</span></p></li><li><p><code>medium full shot</code><span> 中全景</span></p></li><li><p><code>full shot</code><span> 全景</span></p></li></ul><h5 id='除了常规的景别外还有一些特殊作用的镜头'><strong><span>除了常规的景别外还有一些特殊作用的镜头：</span></strong></h5><ul><li><p><code>establishing shot</code><span> 定场镜头（视频开头，用来交代地点的镜头，通常</span><em><span>是</span></em><span>视野宽阔的远景）</span></p></li><li><p><code>point-of-view</code><span> 主观视角</span></p></li><li><p><code>cowboy shot</code><span> 西部牛仔镜头，見到上半身以及大腿（為了見到拔槍）</span></p></li><li><p><code>upper body</code><span> 上半身</span></p></li><li><p><code>full body</code><span> 全身</span></p></li></ul><p><span>以下prompts 會加上 </span><code>1.5</code><span> 權重。</span></p><p><span>需要注意的是再加入景别提示词后，尽量不要加入面部描述 e.g. </span><code>beautiful face</code><span> 这些脸部描述的提示词，否則多數都會變成半身照。</span></p><p><img src="./assets/xyz_grid-0022-3012384022.jpg" referrerpolicy="no-referrer" alt="https://blog.256pages.com/content/images/2023/05/xyz_grid-0022-3012384022.jpg"></p><p><span>出來的結果意外地有些 prompts 很相似，不過再配合其他 prompt 可以更穩定地控制距離。</span></p><ul><li><p><code>extreme close-up</code><span>，</span><code>close-up</code><span> 跟 </span><code>medium close-up</code><span> 都是放大眼睛/面部為主，但有時</span><code>extreme close-up</code><span>會放大更多。</span></p></li><li><p><code>medium shot</code><span> ， </span><code>long shot</code><span> ， </span><code>medium full shot</code><span> 跟 </span><code>full shot</code><span> 看起來差不多，</span><code>medium shot</code><span>有時候會比 </span><code>full shot</code><span> 更近一點，都是臀部以上到頭頂的位置，因为场景的问题几个 prompt 的距離可能會有些變化。</span></p></li><li><p><code>establishing shot</code><span> 的背景會比較明显，如果主體是建築時人物可能會更小。</span></p></li><li><p><code>point-of-view</code><span> 角度會因應人物有點变化，背景通常比較开阔，角度跟主体未必是同一水平視角。</span></p></li><li><p><code>cowboy shot</code><span> 受 </span><code>cowboy</code><span> 污染變了牛仔裝，距離跟 </span><code>medium full shot</code><span> 差不多但距離比較穩定，一定會显示臀部以上到頭頂。</span></p></li><li><p><code>upper body</code><span> 会显示人体上半身，範圍可能由臀部以上到胸以上。</span></p></li><li><p><code>full body</code><span> 是唯一可以見到全身的距離。</span></p></li><li><p>&nbsp;</p></li></ul><p><span>經測試後由近至遠可用的鏡頭 - </span><code>extreme close-up</code><span> &gt; </span><code>close-up</code><span> &gt; </span><code>medium close-up</code><span> &gt; </span><code>upper body</code><span> &gt; </span><code>medium shot</code><span> &gt; </span><code>medium full shot</code><span> &gt; </span><code>full body</code><span> 。</span></p><p><span>而 </span><code>point-of-view</code><span> 跟 </span><code>establishing shot</code><span> 受环境有所影响，所以不適合控制距離。</span></p><hr /><h4 id='拍摄角度拍摄方向拍摄高度'><span>拍摄角度=拍摄方向&amp;拍摄高度</span></h4><p><span>拍摄方向是水平方向的角度</span></p><p><span>拍摄高度是垂直方向的角度</span></p><h5 id='控制拍摄方向的提示词'><strong><span>控制“拍摄方向”的提示词</span></strong></h5><p><span>拍摄方向是指以被摄对象为中心，在同一</span><a href='https://baike.baidu.com/item/%E6%B0%B4%E5%B9%B3%E9%9D%A2/7958825?fromModule=lemma_inlink'><span>水平面</span></a><span>上围绕被摄对象四周选择摄影点。</span></p><p><span>掌握距離然後就是角度，由最基本的前後左右再加一些攝影角度，一樣加上 </span><code>1.5</code><span> 權重，因為角度比較多我分成两类。</span></p><p><strong><span>多種視角 prompts</span></strong></p><ul><li><p><code>front view</code><span> 正面</span></p></li><li><p><code>bilaterally symmetrical</code><span> 左右对称</span></p></li><li><p><code>side view</code><span> 側面</span></p></li><li><p><code>back view</code><span> 後面</span></p></li><li><p><code>from above</code><span> 從上拍攝</span></p></li><li><p><code>from below</code><span> 從下拍攝</span></p></li><li><p><code>from behind</code><span> 后拍</span></p></li></ul><p><span>其他特殊镜头</span></p><ul><li><p><code>wide angle view</code><span> 广角镜头</span></p></li><li><p><code>fisheyes view</code><span> 鱼眼镜头</span></p></li><li><p><code>macro view</code><span> 微距</span></p><p><span>  </span></p></li></ul><h4 id='控制镜头高度的提示词'><span>控制“镜头高度”的提示词</span></h4><p><img src="./assets/eye-level-shots.jpg" referrerpolicy="no-referrer" alt="https://blog.256pages.com/content/images/2023/05/eye-level-shots.jpg"></p><ul><li><p><code>overhead shot</code><span> 俯視</span></p></li><li><p><code>top down</code><span> 由上向下</span></p></li><li><p><code>bird&#39;s eye view</code><span> 鳥瞰</span></p></li><li><p><code>high angle</code><span> 高角度</span></p></li><li><p><code>slightly above</code><span> 微高角度</span></p></li><li><p><code>straight on</code><span> 水平拍攝</span></p></li><li><p><code>hero view</code><span> 英雄視角</span></p></li><li><p><code>low view</code><span> 低視角</span></p></li><li><p><code>worm&#39;s eye view</code><span> 仰視</span></p></li><li><p><code>selfie</code><span> 自拍</span></p><p><img src="./assets/xyz_grid-0010-2844233693.jpg" referrerpolicy="no-referrer" alt="https://blog.256pages.com/content/images/2023/05/xyz_grid-0010-2844233693.jpg"></p></li></ul><p><img src="./assets/xyz_grid-0019-781522150.jpg" referrerpolicy="no-referrer" alt="https://blog.256pages.com/content/images/2023/05/xyz_grid-0019-781522150.jpg"></p><p><span>出來的結果跟字面表示的角度差不多，也有些角度其實是重复的，也有一些受字面影響而受到污染。</span></p><ul><li><p><code>front view</code><span> </span><code>straight on</code><span> 就是正面，但不一定是絕對正面，</span><code>straight on</code><span> 因為水平拍攝的角度所以背景也不會歪。</span></p></li><li><p><code>bilateral symmetry</code><span> 正面兼左右對稱，比正面更準確。</span></p></li><li><p><code>side view</code><span> 向左/向右都是隨機的。</span></p></li><li><p><code>back view</code><span> 跟 </span><code>from behind</code><span> 都是背面， </span><code>back view</code><span> 會近一點，而且通常露背。</span></p></li><li><p><code>from above</code><span> </span><code>overhead shot</code><span> </span><code>high angle</code><span> </span><code>slightly above</code><span> 都是由高角度拍向主體， </span><code>overhead shot</code><span> 角度較高， </span><code>high angle</code><span> 會背景比較闊一些。</span></p></li><li><p><code>from below</code><span> 由下方偷拍 (?) 的視角，天空通常會筒狀變形。</span></p></li><li><p><code>wide angle</code><span> 背景會有一些桶状的變形 </span><code>fisheyes view</code><span> 的畸变效果會更強，但 </span><code>fisheyes view</code><span> 受到污染，总会拿著相機。</span></p></li><li><p><code>macro view</code><span> 變了拍花或微細的物件。</span></p></li><li><p><code>bird&#39;s eye view</code><span> 從高角度影高去同時會見到廣闊的背景，但會有小鸟出現。</span></p></li><li><p><code>top down</code><span>  變成正上方被女生抱住的視角。</span></p></li><li><p><code>hero view</code><span> 角度不對，人物也受污染穿上了英雄戰衣。</span></p></li><li><p><code>low view</code><span> 角度不算很低，有點怀疑沒有效果。</span></p></li><li><p><code>worm&#39;s eye view</code><span> 完全錯了，有很多蟲及怪眼，跟角度完全沒關係。</span></p></li><li><p><code>selfie</code><span> 人物會伸手自拍而且不會太遠。</span></p></li></ul><p><span>其中 </span><code>fisheyes view</code><span> 雖然會污染但因為視角比較特別還是有用的，但 </span><code>hero view</code><span> 跟 </span><code>worm&#39;s eye view</code><span> 及  </span><code>macro view</code><span> 受污染角度又不明顯可以放棄。</span></p><hr /><h4 id='景别＋角度拍摄方向拍摄高度）＝取景'><span>景别＋角度（拍摄方向+拍摄高度）＝取景</span></h4><p><span>了解不同的镜头距离及角度就可以輕鬆使用 prompt 生成出想要的取景。</span></p><p><img src="./assets/00005-1449513125.jpg" alt="https://blog.256pages.com/content/images/2023/05/00005-1449513125.jpg" style="zoom: 67%;" /></p><p><span>1girl, beautiful, solo, (top down:1.5), (close-up1.5), lying in car</span></p><p><img src="./assets/00007-4179308228.jpg" alt="https://blog.256pages.com/content/images/2023/05/00007-4179308228.jpg" style="zoom:67%;" /></p><p><span>1girl, beautiful, solo, (from below:1.5), (full body:1.5), night, street</span></p><p><img src="./assets/00018-4079275181.jpg" alt="https://blog.256pages.com/content/images/2023/05/00018-4079275181.jpg" style="zoom:67%;" /></p><p><span>1girl, beautiful, solo, (establishing shot:1.5), (side view:1.5), in a bus, reading</span></p><p><img src="./assets/00047-1935347324.jpg" alt="https://blog.256pages.com/content/images/2023/05/00047-1935347324.jpg" style="zoom:67%;" /></p><p><span>1girl, beautiful, solo, (from above:1.5), (selfie:1.5), (close-up:1.5), in swimming pool</span></p><hr /><h4 id='總結'><span>總結</span></h4><p><span>由於使用 prompt 取景有時會受到其他 prompt 的影響，建議先使用簡單的 prompt 取景，然後使用 controlnet 固定人物動作。這樣可以得到理想的畫面，而不必擔心人物受到干擾。</span></p><p><span>接下来的视频我们会对controlnet进行介绍，controlnet是stable diffusion最重要的插件，它让随机的出图变得可控。请关注我的频道，我将持续推出优质内容，谢谢。</span></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='markdown编写提示'><span>markdown编写提示</span></h2><h3 id='语法'><span>语法</span></h3><figure class='table-figure'><table><thead><tr><th><strong><span>符号</span></strong></th><th><strong><span>作用和排版效果</span></strong></th><th><strong><span>代码示例</span></strong></th></tr></thead><tbody><tr><td><span>#</span></td><td><span>设置标题等级，标准Markdown语法支持1~6级标题，但各Markdown编辑器</span><br/><span>支持情况各不相同。对应于</span><code>HTML</code><span>中的</span><h1><span>至</span><h6><span>标签。</span></td><td><code># 一级标题</code><br/><span> </span><code>## 二级标题</code><span> </span><br/><code>### 三级标题</code></td></tr><tr><td><span>!</span></td><td><span>在标准Markdown语法中用于插入图片，对应于</span><code>HTML</code><span>中的</span><img><span>标签。 但是，很多Markdown编辑器都会对标准语法有所扩展。 例如：在Obsidian中，如果需要引用视音频文件和PDF文档， 以及使用 #块引用时就需要</span><code>!</code><span>作为引导标识。对应于</span><code>HTML</code><span>中的</span><audio><span>和</span><video><span>等标签。</span></td><td><span>![无法加载时的提示信息(图片网址)]</span></td></tr><tr><td><code>*</code><span> </span><code>_</code></td><td><span>用于设置文字 </span><strong><span>粗体</span></strong><span> 和 </span><em><span>斜体</span></em><span> 样式。</span><br/><span>分别对应于</span><code>HTML</code><span>中的</span><strong><span>和</span><em><span>标签。</span></td><td><code>**粗体文字**</code><br/><code>_斜体文字_</code></td></tr><tr><td><span>~</span></td><td><span>用于设置文字 </span><del><span>删除线</span></del><span> 样式。对应于</span><code>HTML</code><span>中的</span><del><span>标签。</span></td><td><del><span>删除线</span></del></td></tr><tr><td><code>+</code><span> </span><code>-</code></td><td><span>用于表示无序列表，对应于</span><code>HTML</code><span>中的</span><ul><span>和</span><li><span>标签组合。</span><br/><span>此外，</span><code>+</code><span>和</span><code>-</code><span>也会在表示任务列表时使用到。</span></td><td><span>- 无序列表第1项</span><code></code><span>+ 无序列表第2项</span><code></code><span>+ [ ] 没有完成的任务列表</span><code></code><span>- [x] 完成的任务列表</span></td></tr><tr><td><span>&gt;</span></td><td><span>用于表示引用信息。对应于</span><code>HTML</code><span>中的</span><blockquote><span>标签。</span></td><td><code>&gt; 路漫漫其修远兮</code><br/><span> </span><code>&gt; 吾将上下而求索</code></td></tr><tr><td><code>&lt;</code><span> </span><code>&gt;</code></td><td><span>使用</span><code>HTML</code><span>标签进行排版以补充</span><code>Markdown</code><span>语法的不足之处。</span><br/><span>例如：添加</span><u><span>下划线</span></u><span>、</span><sup><span>上标</span></sup><span>和</span><sub><span>下标</span></sub><span>效果。</span></td><td><code>&lt;u&gt;下划线&lt;/u&gt;</code><span> </span><br/><code>&lt;sup&gt;上标&lt;/sup&gt;</code><span> </span><br/><code>&lt;sub&gt;下标&lt;/sub&gt;</code></td></tr><tr><td><code>[</code><span> </span><code>]</code></td><td><span>用于设置</span><a href='https://links.jianshu.com/go?to=https%3A%2F%2Fwww.baidu.com'><span>超链接</span></a><span>，对应于</span><code>HTML</code><span>中的</span><a><span>标签。</span></td><td><a href='网址' title='鼠标悬停时文字'><span>显示文字</span></a></td></tr><tr><td><code>| 用于书写</code><span>行内代码</span><code>或</code><span>段间代码</span><code>。对应于</code><span>HTML</span><code>中的&lt;code&gt;标签。</code><span>行内代码</span><code>不限于标注编程语言，也可以强调专用术语词汇等。 | 行内代码：</code><span>#include &lt;stdio.h&gt;`</span><br/><span>段间代码：</span><br/><span>`</span><span>``c</span><br/><span>int a = 1;</span><br/><span>char b = &#39;a&#39;;</span><br/><span>`</span><span>``</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>.</span></td><td><span>用于表示有序列表，对应于</span><code>HTML</code><span>中的</span><ol><span>和</span><li><span>标签组合。</span></td><td><code>1. 有序列表第1项</code><span> </span><code>2. 有序列表第2项</code></td></tr><tr><td><span>^</span></td><td><span>用于表示脚注。</span></td><td><span>《咏鹅》</span><span>[^脚注名称]</span><span>是一首诗。</span><br/><span>[^脚注名称]</span><span>: 作者是骆宾王。</span></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><h3 id='转义字符'><span>转义字符</span></h3><h4 id='1前缀实现转义'><span>1.前缀</span><code>\</code><span>实现转义</span></h4><p><span>举例：</span></p><p><span>针对</span><code>HTML</code><span>标签。使用</span><code>HTML</code><span>上下标标签书写数学公式Sin</span><sup><span>2</span></sup><span>(x</span><sub><span>1</span></sub><span>)，当然应该录入</span><code>Sin&lt;sup&gt;2&lt;/sup&gt;(x&lt;sub&gt;1&lt;/sub&gt;)</code><span>。但如需展示的是完整的</span><code>HTML</code><span>代码，则应在文档中键入</span><code>Sin\&lt;sup\&gt;2\&lt;/sup\&gt;(x\&lt;sub\&gt;1\&lt;/sub\&gt;)</code><span>才能实现。</span></p><p>&nbsp;</p><h4 id='2使用html中的转义字符'><span>2.使用html中的转义字符</span></h4><p><span>html中包含一系列字符实体（特殊符号），利用转义字符可以将这些在html中具有特殊语法含义的字符作为普通字符输出。</span></p><table class="dataintable"><tbody><tr><th>显示结果</th><th>描述</th><th>输入</th><th>实体编号</th></tr><tr><td>&nbsp;</td><td>空格</td><td>&amp;nbsp;</td><td>&amp;#160;</td></tr><tr><td>&lt;</td><td>小于号</td><td>&amp;lt;</td><td>&amp;#60;</td></tr><tr><td>&gt;</td><td>大于号</td><td>&amp;gt;</td><td>&amp;#62;</td></tr><tr><td>&amp;</td><td>和号</td><td>&amp;amp;</td><td>&amp;#38;</td></tr><tr><td>"</td><td>引号</td><td>&amp;quot;</td><td>&amp;#34;</td></tr><tr><td>'</td><td>撇号</td><td>&amp;apos; (IE不支持)</td><td>&amp;#39;</td></tr><tr><td>￠</td><td>分</td><td>&amp;cent;</td><td>&amp;#162;</td></tr><tr><td>£</td><td>镑</td><td>&amp;pound;</td><td>&amp;#163;</td></tr><tr><td>¥</td><td>日圆</td><td>&amp;yen;</td><td>&amp;#165;</td></tr><tr><td>§</td><td>节</td><td>&amp;sect;</td><td>&amp;#167;</td></tr><tr><td>©</td><td>版权</td><td>&amp;copy;</td><td>&amp;#169;</td></tr><tr><td>®</td><td>注册商标</td><td>&amp;reg;</td><td>&amp;#174;</td></tr><tr><td>×</td><td>乘号</td><td>&amp;times;</td><td>&amp;#215;</td></tr><tr><td>÷</td><td>除号</td><td>&amp;divide;</td><td>&amp;#247;</td></tr></tbody></table><p>&nbsp;</p><p>&nbsp;</p><style>
+</div><p><span>训练效果：</span></p><p><img src="./assets/00321-77530829.png" referrerpolicy="no-referrer" alt="00321-77530829"></p><p><span>提示词:</span></p><p><span>masterpiece,best quality,1girl,solo,shirt,white_shirt,teeth,closed_eyes,realistic,black_hair,short_sleeves,t-shirt,open_mouth,upper_body,</span>&lt;<span>lora:kid_cici:1</span>&gt;</p><p><span>负面提示词:</span></p><p><span>(worst quality, bad quality:1.4),lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,</span></p><p><span>其他参数：</span></p><p><span>Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 77530829, Size: 512x512, Model hash: cbfba64e66, Model: CounterfeitV30_v30, Clip skip: 2, ENSD: 31337, Lora hashes: &quot;kid_cici: 221bd638bf15&quot;, Version: v1.3.2</span></p><p>&nbsp;</p><p><img src="./assets/00328-2550667848.png" referrerpolicy="no-referrer" alt="00328-2550667848"></p><p><span>提示词:</span></p><p><span>masterpiece,best quality,(full body:1.2),1girl,solo,shirt,white shirt,black hair,short sleeves,t-shirt,smile,long hair,</span>&lt;<span>lora:kid_cici:1&gt;,</span>&lt;<span>lora:COOLKIDS_MERGE_V2.5:0.8&gt;,</span></p><p><span>负面提示词:</span></p><p><span>(worst quality, bad quality:1.4),lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,</span></p><p><span>其他参数：</span></p><p><span>Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 2550667848, Size: 512x512, Model hash: 4199bcdd14, Model: revAnimated_v122, Clip skip: 2, ENSD: 31337, Lora hashes: &quot;kid_cici: 221bd638bf15, COOLKIDS_MERGE_V2.5: 7f2175533ea5&quot;, Version: v1.3.2</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='云端部署'><span>云端部署</span></h1><p><em><span>若链接的文件不在指定路径则会失效，需要重新寻找资源</span></em></p><h2 id='阿里云'><span>阿里云</span></h2><h3 id='sd部署'><span>SD部署</span></h3><h4 id='申请'><span>申请</span></h4><p><span>新用户白嫖DSW和NAS</span></p><h4 id='准备文件'><span>准备文件</span></h4><p><span>一、秋叶的部署脚本 </span><a href='脚本\sd-webui-aki-aliyun-v5.ipynb'><span>sd-webui-aki-aliyun-v5.ipynb</span></a><span> ，目前V5版本    当前日期：2023\6\15</span></p><p><span>B站up主</span><strong><span>秋葉aaaki</span></strong><span>空间：</span><a href='https://space.bilibili.com/12566101/' target='_blank' class='url'>https://space.bilibili.com/12566101/</a></p><p><span>下载地址：</span><a href='https://pan.quark.cn/s/12af730acb20' target='_blank' class='url'>https://pan.quark.cn/s/12af730acb20</a></p><p>&nbsp;</p><p><span>二、包括我自己和多人修改后的安装脚本 </span><a href='assets\安装.ipynb'><span>安装.ipynb</span></a><span>  </span></p><p>&nbsp;</p><h4 id='执行部署'><span>执行部署</span></h4><p><span>将上述文件拖入工作空间并打开。</span></p><p><span>一、安装SD</span></p><p><span>执行秋叶脚本的“安装 第一次需要执行 ”代码块</span></p><p><span>二、配置</span></p><p><span>执行安装脚本的“批量安装 ”、“安装常用插件 ”、“controlnet模型 ”、最上方的个人安装插件、ckpt、lora、VAE等</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='google-colab'><span>google colab</span></h2><p><span>优点：无需安装，不吃配置</span></p><p><span>缺点：需要魔法，操作繁琐，有配额限制</span></p><p><span>相比其他常见云端（如阿里云）：白嫖不付费，装插件、模型方便，配置一般——t4GPU</span></p><p><span>如何更大程度利用：n个Google账号，互相利用网盘空间、接力使用；以及部署部分的文件到云端，更快启动。</span></p><p>&nbsp;</p><p><span>要解决的难题：</span></p><ol start='' ><li><span>google注册（亲身体会同一设备过多注册会导致封号，换节点等方法无效）</span></li><li><span>连续使用</span></li><li><span>脚本问题</span></li><li><span>空间不足</span></li></ol><p>&nbsp;</p><h3 id='注册'><span>注册</span></h3><p><span>手机接码平台</span><a href='https://5sim.net/zh' target='_blank' class='url'>https://5sim.net/zh</a><span>，使用体验是不稳定，很多都不能用。相对的openai注册体验还可以。最低要充值1美金。</span></p><p><span>另一个接码平台</span><a href='https://sms-activate.org/' target='_blank' class='url'>https://sms-activate.org/</a><span>，最低要充值2美金。</span></p><p>&nbsp;</p><h3 id='连续使用'><span>连续使用</span></h3><p><span>脚本： </span><a href='assets\fast_sdwebui_on_drive_V2.ipynb'><span>fast_sdwebui_on_drive_V2.ipynb</span></a><span> ，该脚本在</span><strong><span>賢明很wise</span></strong><span>脚本的基础上更改。</span></p><p><span>原脚本的github地址：</span><a href='https://github.com/zc0125/colab-stable-diffusion-webui' target='_blank' class='url'>https://github.com/zc0125/colab-stable-diffusion-webui</a></p><p><span>										</span><a href='https://github.com/Van-wise/sd-colab' target='_blank' class='url'>https://github.com/Van-wise/sd-colab</a></p><p><span>简单来讲，就是将sd部署进云盘里，然后链接colab运行。需要注意的是，colab是禁止跑sd的，实际上这个禁止本质上是不允许代码中出现sd-webui等单词，可以通过别的方法绕过。</span></p><p><span>这样的好处在于：</span></p><p><span>1.更快启动sd，减少启动可能出现的错误。（如果每次都全部重新安装，可能会导致配额不足）</span></p><p><span>2.更舒适的自定义，不会弄丢自己的配置，如提示词预设、各模型、插件等。</span></p><p><span>3.可以安逸存图，跑出来的图片是存入云盘的，随时可以翻出跑过的图。</span></p><p>&nbsp;</p><h3 id='脚本问题'><span>脚本问题</span></h3><p><span>gradio版本更新导致环境不匹配，因此不要使用最新的gradio。</span></p><p><span>解决方法：</span></p><p><span>1.注释gradio（已使用该方法，可以稳定运行）</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">!pip install -qq pycloudflared tomesd #gradio</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>2.指定版本</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">!pip install gradio==3.34.0 --no-deps -qq</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><h3 id='空间不足'><span>空间不足</span></h3><p><span>谷歌云盘免费用户只有15g空间，肯定不够用的。可以从最占空间的模型下手，如果每次重新下载模型到colab，不仅又慢又麻烦还可能出各种bug。最好的方法是通过共享文件拓展空间。</span></p><p>&nbsp;</p><h1 id='其它'><span>其它</span></h1><h2 id='工具'><span>工具</span></h2><h3 id='产图辅助'><span>产图辅助</span></h3><h4 id='生成图参数解析'><span>生成图参数解析</span></h4><p><a href='https://spell.novelai.dev/' target='_blank' class='url'>https://spell.novelai.dev/</a></p><h4 id='danbooru-标签超市'><span>Danbooru 标签超市</span></h4><p><a href='https://tags.novelai.dev/' target='_blank' class='url'>https://tags.novelai.dev/</a></p><p>&nbsp;</p><h3 id='模型训练辅助'><span>模型训练辅助</span></h3><h4 id='裁剪图片'><span>裁剪图片</span></h4><p><a href='https://www.birme.net/' target='_blank' class='url'>https://www.birme.net/</a></p><p>&nbsp;</p><h3 id='资源下载'><span>资源下载</span></h3><h4 id='国外模型网站'><span>国外模型网站</span></h4><p><span>c站（推荐，用户广泛、模型较全）</span></p><p><a href='https://civitai.com/' target='_blank' class='url'>https://civitai.com/</a></p><p><span>抱脸，已被墙</span></p><p><a href='https://huggingface.co/' target='_blank' class='url'>https://huggingface.co/</a></p><p><span>huggingface个人空间（里面收藏了一些个人挑选的模型）</span></p><p><a href='https://huggingface.co/fateNell/GameIcon' target='_blank' class='url'>https://huggingface.co/fateNell/GameIcon</a></p><p>&nbsp;</p><h4 id='国内模型网站'><span>国内模型网站</span></h4><p><span>哩布哩布</span></p><p><a href='https://www.liblibai.com/' target='_blank' class='url'>https://www.liblibai.com/</a></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='markdown编写提示'><span>markdown编写提示</span></h2><h3 id='语法'><span>语法</span></h3><figure><table><thead><tr><th><strong><span>符号</span></strong></th><th><strong><span>作用和排版效果</span></strong></th><th><strong><span>代码示例</span></strong></th></tr></thead><tbody><tr><td><span>#</span></td><td><span>设置标题等级，标准Markdown语法支持1~6级标题，但各Markdown编辑器</span><br><span>支持情况各不相同。对应于</span><code>HTML</code><span>中的</span><h1><span>至</span><h6><span>标签。</span></td><td><code># 一级标题</code><br><span> </span><code>## 二级标题</code><span> </span><br><code>### 三级标题</code></td></tr><tr><td><span>!</span></td><td><span>在标准Markdown语法中用于插入图片，对应于</span><code>HTML</code><span>中的</span><img><span>标签。 但是，很多Markdown编辑器都会对标准语法有所扩展。 例如：在Obsidian中，如果需要引用视音频文件和PDF文档， 以及使用 #块引用时就需要</span><code>!</code><span>作为引导标识。对应于</span><code>HTML</code><span>中的</span><audio><span>和</span><video><span>等标签。</span></td><td><span>![无法加载时的提示信息(图片网址)]</span></td></tr><tr><td><code>*</code><span> </span><code>_</code></td><td><span>用于设置文字 </span><strong><span>粗体</span></strong><span> 和 </span><em><span>斜体</span></em><span> 样式。</span><br><span>分别对应于</span><code>HTML</code><span>中的</span><strong><span>和</span><em><span>标签。</span></td><td><code>**粗体文字**</code><br><code>_斜体文字_</code></td></tr><tr><td><span>~</span></td><td><span>用于设置文字 </span><del><span>删除线</span></del><span> 样式。对应于</span><code>HTML</code><span>中的</span><del><span>标签。</span></td><td><del><span>删除线</span></del></td></tr><tr><td><code>+</code><span> </span><code>-</code></td><td><span>用于表示无序列表，对应于</span><code>HTML</code><span>中的</span><ul><span>和</span><li><span>标签组合。</span><br><span>此外，</span><code>+</code><span>和</span><code>-</code><span>也会在表示任务列表时使用到。</span></td><td><span>- 无序列表第1项</span><code></code><span>+ 无序列表第2项</span><code></code><span>+ [ ] 没有完成的任务列表</span><code></code><span>- [x] 完成的任务列表</span></td></tr><tr><td><span>&gt;</span></td><td><span>用于表示引用信息。对应于</span><code>HTML</code><span>中的</span><blockquote><span>标签。</span></td><td><code>&gt; 路漫漫其修远兮</code><br><span> </span><code>&gt; 吾将上下而求索</code></td></tr><tr><td><code>&lt;</code><span> </span><code>&gt;</code></td><td><span>使用</span><code>HTML</code><span>标签进行排版以补充</span><code>Markdown</code><span>语法的不足之处。</span><br><span>例如：添加</span><u><span>下划线</span></u><span>、</span><sup><span>上标</span></sup><span>和</span><sub><span>下标</span></sub><span>效果。</span></td><td><code>&lt;u&gt;下划线&lt;/u&gt;</code><span> </span><br><code>&lt;sup&gt;上标&lt;/sup&gt;</code><span> </span><br><code>&lt;sub&gt;下标&lt;/sub&gt;</code></td></tr><tr><td><code>[</code><span> </span><code>]</code></td><td><span>用于设置</span><a href='https://links.jianshu.com/go?to=https%3A%2F%2Fwww.baidu.com'><span>超链接</span></a><span>，对应于</span><code>HTML</code><span>中的</span><a><span>标签。</span></td><td><a href='网址' title='鼠标悬停时文字'><span>显示文字</span></a></td></tr><tr><td><code>| 用于书写</code><span>行内代码</span><code>或</code><span>段间代码</span><code>。对应于</code><span>HTML</span><code>中的&lt;code&gt;标签。</code><span>行内代码</span><code>不限于标注编程语言，也可以强调专用术语词汇等。 | 行内代码：</code><span>#include &lt;stdio.h&gt;`</span><br><span>段间代码：</span><br><span>`</span><span>``c</span><br><span>int a = 1;</span><br><span>char b = &#39;a&#39;;</span><br><span>`</span><span>``</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>.</span></td><td><span>用于表示有序列表，对应于</span><code>HTML</code><span>中的</span><ol><span>和</span><li><span>标签组合。</span></td><td><code>1. 有序列表第1项</code><span> </span><code>2. 有序列表第2项</code></td></tr><tr><td><span>^</span></td><td><span>用于表示脚注。</span></td><td><span>《咏鹅》</span><span>[^脚注名称]</span><span>是一首诗。</span><br><span>[^脚注名称]</span><span>: 作者是骆宾王。</span></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><h3 id='转义字符'><span>转义字符</span></h3><h4 id='1前缀实现转义'><span>1.前缀</span><code>\</code><span>实现转义</span></h4><p><span>举例：</span></p><p><span>针对</span><code>HTML</code><span>标签。使用</span><code>HTML</code><span>上下标标签书写数学公式Sin</span><sup><span>2</span></sup><span>(x</span><sub><span>1</span></sub><span>)，当然应该录入</span><code>Sin&lt;sup&gt;2&lt;/sup&gt;(x&lt;sub&gt;1&lt;/sub&gt;)</code><span>。但如需展示的是完整的</span><code>HTML</code><span>代码，则应在文档中键入</span><code>Sin\&lt;sup\&gt;2\&lt;/sup\&gt;(x\&lt;sub\&gt;1\&lt;/sub\&gt;)</code><span>才能实现。</span></p><p>&nbsp;</p><h4 id='2使用html中的转义字符'><span>2.使用html中的转义字符</span></h4><p><span>html中包含一系列字符实体（特殊符号），利用转义字符可以将这些在html中具有特殊语法含义的字符作为普通字符输出。</span></p><table class="dataintable"><tbody><tr><th>显示结果</th><th>描述</th><th>输入</th><th>实体编号</th></tr><tr><td>&nbsp;</td><td>空格</td><td>&amp;nbsp;</td><td>&amp;#160;</td></tr><tr><td>&lt;</td><td>小于号</td><td>&amp;lt;</td><td>&amp;#60;</td></tr><tr><td>&gt;</td><td>大于号</td><td>&amp;gt;</td><td>&amp;#62;</td></tr><tr><td>&amp;</td><td>和号</td><td>&amp;amp;</td><td>&amp;#38;</td></tr><tr><td>"</td><td>引号</td><td>&amp;quot;</td><td>&amp;#34;</td></tr><tr><td>'</td><td>撇号</td><td>&amp;apos; (IE不支持)</td><td>&amp;#39;</td></tr><tr><td>￠</td><td>分</td><td>&amp;cent;</td><td>&amp;#162;</td></tr><tr><td>£</td><td>镑</td><td>&amp;pound;</td><td>&amp;#163;</td></tr><tr><td>¥</td><td>日圆</td><td>&amp;yen;</td><td>&amp;#165;</td></tr><tr><td>§</td><td>节</td><td>&amp;sect;</td><td>&amp;#167;</td></tr><tr><td>©</td><td>版权</td><td>&amp;copy;</td><td>&amp;#169;</td></tr><tr><td>®</td><td>注册商标</td><td>&amp;reg;</td><td>&amp;#174;</td></tr><tr><td>×</td><td>乘号</td><td>&amp;times;</td><td>&amp;#215;</td></tr><tr><td>÷</td><td>除号</td><td>&amp;divide;</td><td>&amp;#247;</td></tr></tbody></table>
+<style>
 mark{
     color:red;
 }
 </style><p><mark><span>what is DataBase</span></mark></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
-</body>
+
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
 </html>
